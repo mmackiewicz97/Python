@@ -4,14 +4,6 @@ import matplotlib.animation as anim
 from matplotlib import patches as mpaths
 import json
 
-#ZAD_DOM:
-#  - kilku z uciekinierów ma pik przed pierwszym krokiem (w lewym górnym rogu) - do naprawy
-#  - pobrać wszystkie możliwe dane z eggman.json, a nie deklarować w programie na stałe
-
-#unikanie kolizji
-#instalacja biblioteki orca rv2?
-#git do pobierania z githuba lub konfiguracja pycharma
-
 class Pedestrian:
     def __init__(self, goals, velo, pre):
         self.traj = []
@@ -20,7 +12,7 @@ class Pedestrian:
         self.pre_time = pre
 
     def create_vel_vector(self, actual, goal):
-        vec_real = np.array(goal) - np.array(actual)  # wspolrzedne wektorow rzeczywistych aby z warunku brało goals_no
+        vec_real = np.array(goal) - np.array(actual)
         len_vec_real = np.linalg.norm(vec_real)
         vec_u = vec_real / len_vec_real
         vec_vel = vec_u * self.speed
@@ -43,14 +35,13 @@ class Pedestrian:
             self.traj.append(position)
             step_no += 1
 
-        while True:             #pętla tworząca trajektorię
+        while True:
             try:
                 if np.linalg.norm(self.goals[goal_no] - np.array(position)) <= self.speed/2:
                     goal_no += 1
                 position, vec_vel = self.create_trajectory(position, self.goals[goal_no])
             except:
                 break
-        #print(self.traj)
         return self.traj
 
     def chart(self):
@@ -81,17 +72,15 @@ class Pedestrians:
         for i in trajs:
             lens.append(len(i))
         length = max(lens)
-        for i in range(length):          # dla iluśtam kroków
+        for i in range(length):
             step = []
-            for j in range(len(trajs)):  # tworzy gdzie są w danym kroku
+            for j in range(len(trajs)):
                 try:
                     step.append(trajs[j][i])
                 except:
                     step.append(trajs[j][-1])
-            temp_traj.append(step)          #do tego momentu tworzy odpowiednią trajektorię
-        #print('trajektoria posortowana wg krokow:', temp_traj)
-
-        foo = zip(*temp_traj)               #rysuje trajektorie
+            temp_traj.append(step)
+        foo = zip(*temp_traj)
         for i in foo:
             x, y = zip(*i)
             plt.plot(x, y, "-")
@@ -111,8 +100,7 @@ class Animation:
         self.trajectory = pedest.get_chart()
         self.n_frames = len(self.trajectory)
 
-        elipses = [mpaths.Ellipse(i, width=1, height=1, angle=self.ang) for i in
-                   self.trajectory[0]]      # stworzenie kształtu i przypisanie mu cech (wymiary, współ początkowych)
+        elipses = [mpaths.Ellipse(i, width=1, height=1, angle=self.ang) for i in self.trajectory[0]]
         [self.trial.append(self.ax.add_patch(elipses[i])) for i in range(len(elipses))]
 
     def init_animation(self):
@@ -126,12 +114,11 @@ class Animation:
         return self.trial
 
     def do_animation(self, n_interval):
-        animate = anim.FuncAnimation(self.fig, self.animate, frames=self.n_frames, init_func=self.init_animation,
-                                     interval=n_interval, blit=True)
+        animate = anim.FuncAnimation(self.fig, self.animate, frames=self.n_frames, init_func=self.init_animation, interval=n_interval, blit=True)
         plt.show()
 
     def create_walls(self):
-        for i in obst:                                      # kreślenie ścian budynku
+        for i in obst:                                     
             corners_x = [i[0][0], i[1][0], i[2][0], i[3][0]]
             corners_y = [i[0][1], i[1][1], i[2][1], i[3][1]]
             plt.plot(corners_x, corners_y, "r", lw=3)
