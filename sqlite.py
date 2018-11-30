@@ -1,5 +1,5 @@
 import sqlite3
-sql = sqlite3.connect("/home/mateusz/Dokumenty/Pyton/2018/baza1.sql")
+sql = sqlite3.connect("/home/mateusz/Pyton/baza1.sql")
 db = sql.cursor()
 
 # query = 'CREATE TABLE Studenci (id int, imie varchar, nazwisko varchar, odznaka boolean, jakas)'
