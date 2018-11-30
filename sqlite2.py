@@ -1,5 +1,5 @@
 import sqlite3
-sql = sqlite3.connect("/home/mateusz/Dokumenty/Pyton/2018/baza2.sql")
+sql = sqlite3.connect("/home/mateusz/Pyton/baza2.sql")
 db = sql.cursor()
 
 #DELETE from studenci #usuwa rekordy
