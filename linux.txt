@@ -1,0 +1,23 @@
+# Imagemagick for tesseract 
+convert -density 300 plik.pdf -depth 8 -strip -background white -alpha off plikout.tiff
+
+convert -density 300 -trim plik.pdf[50] -quality 100 50.jpg
+	plik.pdf %02d.pdf #pojedyncze strony
+	*.pdf plik.pdf #jeden plik
+# Tesseract pdf to txt
+tesseract plikout.tiff -l pol pliktext
+
+mogrify -resize 400x300 plik.jpg
+	-resize 50%
+
+vnstat (-u)
+vnstati -s -i wlp1s0 -o ~/Pulpit/plik.png
+sudo vnstati -h -i wlp1s0 -o ~/Pulpit/sum.png
+
+#change name files
+a=1
+for i in *.jpg; do
+  new=$(printf "%04d.jpg" "$a") #04 pad to length of 4
+  mv -i -- "$i" "$new"
+  let a=a+1
+done
