@@ -1,0 +1,3899 @@
+{
+    "geom": {
+        "1": [
+            {
+                "name": "ROOM_1_1",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 4.61,
+                "y0": 12.62,
+                "z0": 0.0,
+                "x1": 6.04,
+                "y1": 14.15,
+                "z1": 3.0,
+                "dim_x": 1.43,
+                "dim_y": 1.53,
+                "dim_z": 3.0,
+                "center_x": 5.32,
+                "center_y": 13.38,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_2",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 44.72,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 48.25,
+                "y1": 3.6,
+                "z1": 3.0,
+                "dim_x": 3.53,
+                "dim_y": 3.13,
+                "dim_z": 3.0,
+                "center_x": 46.48,
+                "center_y": 2.03,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_3",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 5.88,
+                "y0": 4.71,
+                "z0": 0.0,
+                "x1": 7.32,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 1.44,
+                "dim_y": 3.23,
+                "dim_z": 3.0,
+                "center_x": 6.6,
+                "center_y": 6.32,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_4",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 7.32,
+                "y0": 4.71,
+                "z0": 0.0,
+                "x1": 8.53,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 1.21,
+                "dim_y": 3.23,
+                "dim_z": 3.0,
+                "center_x": 7.92,
+                "center_y": 6.32,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_5",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 4.75,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 8.53,
+                "y1": 4.71,
+                "z1": 3.0,
+                "dim_x": 3.78,
+                "dim_y": 4.24,
+                "dim_z": 3.0,
+                "center_x": 6.64,
+                "center_y": 2.59,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_6",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 6.04,
+                "y0": 12.62,
+                "z0": 0.0,
+                "x1": 8.52,
+                "y1": 14.15,
+                "z1": 3.0,
+                "dim_x": 2.48,
+                "dim_y": 1.53,
+                "dim_z": 3.0,
+                "center_x": 7.28,
+                "center_y": 13.38,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_7",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 4.61,
+                "y0": 14.15,
+                "z0": 0.0,
+                "x1": 8.52,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.91,
+                "dim_y": 3.02,
+                "dim_z": 3.0,
+                "center_x": 6.56,
+                "center_y": 15.66,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_8",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 36.24,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 40.19,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 3.95,
+                "dim_y": 7.47,
+                "dim_z": 3.0,
+                "center_x": 38.21,
+                "center_y": 4.2,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_9",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 32.28,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 36.24,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.47,
+                "dim_z": 3.0,
+                "center_x": 34.26,
+                "center_y": 4.2,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_10",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 28.32,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 32.28,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.47,
+                "dim_z": 3.0,
+                "center_x": 30.3,
+                "center_y": 4.2,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_11",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 24.37,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 28.32,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 3.95,
+                "dim_y": 7.47,
+                "dim_z": 3.0,
+                "center_x": 26.34,
+                "center_y": 4.2,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_12",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 20.41,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 24.37,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.47,
+                "dim_z": 3.0,
+                "center_x": 22.39,
+                "center_y": 4.2,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_13",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 16.45,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 20.41,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.47,
+                "dim_z": 3.0,
+                "center_x": 18.43,
+                "center_y": 4.2,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_14",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 12.49,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 16.45,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.47,
+                "dim_z": 3.0,
+                "center_x": 14.47,
+                "center_y": 4.2,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_15",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 8.53,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 12.49,
+                "y1": 7.94,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.47,
+                "dim_z": 3.0,
+                "center_x": 10.51,
+                "center_y": 4.2,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_16",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 36.23,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 40.19,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.46,
+                "dim_z": 3.0,
+                "center_x": 38.21,
+                "center_y": 13.44,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_17",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 32.27,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 36.23,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.46,
+                "dim_z": 3.0,
+                "center_x": 34.25,
+                "center_y": 13.44,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_18",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 28.31,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 32.27,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.46,
+                "dim_z": 3.0,
+                "center_x": 30.29,
+                "center_y": 13.44,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_19",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 24.35,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 28.31,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.46,
+                "dim_z": 3.0,
+                "center_x": 26.33,
+                "center_y": 13.44,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_20",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 20.39,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 24.35,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.46,
+                "dim_z": 3.0,
+                "center_x": 22.37,
+                "center_y": 13.44,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_21",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 16.43,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 20.39,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.46,
+                "dim_z": 3.0,
+                "center_x": 18.41,
+                "center_y": 13.44,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_22",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 12.48,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 16.43,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.95,
+                "dim_y": 7.46,
+                "dim_z": 3.0,
+                "center_x": 14.45,
+                "center_y": 13.44,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "ROOM_1_23",
+                "type_pri": "COMPA",
+                "type_sec": "ROOM",
+                "type_tri": "",
+                "x0": 8.52,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 12.48,
+                "y1": 17.17,
+                "z1": 3.0,
+                "dim_x": 3.96,
+                "dim_y": 7.46,
+                "dim_z": 3.0,
+                "center_x": 10.5,
+                "center_y": 13.44,
+                "center_z": 1.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "HOLE_1_1",
+                "type_pri": "HVENT",
+                "type_sec": "HOLE",
+                "type_tri": "DOOR",
+                "x0": 40.19,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 40.21,
+                "y1": 9.71,
+                "z1": 2.7,
+                "dim_x": 0.02,
+                "dim_y": 1.77,
+                "dim_z": 2.7,
+                "center_x": 40.2,
+                "center_y": 8.82,
+                "center_z": 1.35,
+                "vent_from_name": "COR_1_25",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "HOLE_1_2",
+                "type_pri": "HVENT",
+                "type_sec": "HOLE",
+                "type_tri": "DOOR",
+                "x0": 8.52,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 8.54,
+                "y1": 9.71,
+                "z1": 2.7,
+                "dim_x": 0.02,
+                "dim_y": 1.77,
+                "dim_z": 2.7,
+                "center_x": 8.53,
+                "center_y": 8.82,
+                "center_z": 1.35,
+                "vent_from_name": "COR_1_24",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "HOLE_1_3",
+                "type_pri": "HVENT",
+                "type_sec": "HOLE",
+                "type_tri": "DOOR",
+                "x0": 7.32,
+                "y0": 4.71,
+                "z0": 0.0,
+                "x1": 8.53,
+                "y1": 4.73,
+                "z1": 3.0,
+                "dim_x": 1.21,
+                "dim_y": 0.02,
+                "dim_z": 3.0,
+                "center_x": 7.92,
+                "center_y": 4.72,
+                "center_z": 1.5,
+                "vent_from_name": "ROOM_1_4",
+                "vent_to_name": "ROOM_1_5",
+                "how_much_open": null
+            },
+            {
+                "name": "COR_1_24",
+                "type_pri": "COMPA",
+                "type_sec": "COR",
+                "type_tri": "",
+                "x0": 6.04,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 8.52,
+                "y1": 12.62,
+                "z1": 2.7,
+                "dim_x": 2.48,
+                "dim_y": 4.68,
+                "dim_z": 2.7,
+                "center_x": 7.28,
+                "center_y": 10.28,
+                "center_z": 1.35,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "COR_1_25",
+                "type_pri": "COMPA",
+                "type_sec": "COR",
+                "type_tri": "",
+                "x0": 40.19,
+                "y0": 0.47,
+                "z0": 0.0,
+                "x1": 44.72,
+                "y1": 13.83,
+                "z1": 2.7,
+                "dim_x": 4.53,
+                "dim_y": 13.36,
+                "dim_z": 2.7,
+                "center_x": 42.45,
+                "center_y": 7.15,
+                "center_z": 1.35,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "COR_1_26",
+                "type_pri": "COMPA",
+                "type_sec": "COR",
+                "type_tri": "",
+                "x0": 8.52,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 40.19,
+                "y1": 9.71,
+                "z1": 2.7,
+                "dim_x": 31.67,
+                "dim_y": 1.77,
+                "dim_z": 2.7,
+                "center_x": 24.35,
+                "center_y": 8.82,
+                "center_z": 1.35,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "STAI_1_27",
+                "type_pri": "COMPA",
+                "type_sec": "STAI",
+                "type_tri": "",
+                "x0": 40.19,
+                "y0": 13.83,
+                "z0": 0.0,
+                "x1": 47.66,
+                "y1": 17.17,
+                "z1": 5.0,
+                "dim_x": 7.47,
+                "dim_y": 3.34,
+                "dim_z": 5.0,
+                "center_x": 43.92,
+                "center_y": 15.5,
+                "center_z": 2.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "STAI_1_28",
+                "type_pri": "COMPA",
+                "type_sec": "STAI",
+                "type_tri": "",
+                "x0": 0.67,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 6.04,
+                "y1": 12.62,
+                "z1": 5.0,
+                "dim_x": 5.37,
+                "dim_y": 2.91,
+                "dim_z": 5.0,
+                "center_x": 3.35,
+                "center_y": 11.16,
+                "center_z": 2.5,
+                "vent_from_name": null,
+                "vent_to_name": null,
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_4",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 0.67,
+                "y0": 10.3,
+                "z0": 0.0,
+                "x1": 0.69,
+                "y1": 11.99,
+                "z1": 2.0,
+                "dim_x": 0.02,
+                "dim_y": 1.69,
+                "dim_z": 2.0,
+                "center_x": 0.68,
+                "center_y": 11.14,
+                "center_z": 1.0,
+                "vent_from_name": "STAI_1_28",
+                "vent_to_name": "outside",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_5",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 47.66,
+                "y0": 14.87,
+                "z0": 0.0,
+                "x1": 47.68,
+                "y1": 16.62,
+                "z1": 2.0,
+                "dim_x": 0.02,
+                "dim_y": 1.75,
+                "dim_z": 2.0,
+                "center_x": 47.67,
+                "center_y": 15.74,
+                "center_z": 1.0,
+                "vent_from_name": "STAI_1_27",
+                "vent_to_name": "outside",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_6",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 40.89,
+                "y0": 13.83,
+                "z0": 0.0,
+                "x1": 41.82,
+                "y1": 13.85,
+                "z1": 2.0,
+                "dim_x": 0.93,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 41.35,
+                "center_y": 13.84,
+                "center_z": 1.0,
+                "vent_from_name": "COR_1_25",
+                "vent_to_name": "STAI_1_27",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_7",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 44.72,
+                "y0": 2.79,
+                "z0": 0.0,
+                "x1": 44.74,
+                "y1": 3.53,
+                "z1": 2.0,
+                "dim_x": 0.02,
+                "dim_y": 0.74,
+                "dim_z": 2.0,
+                "center_x": 44.73,
+                "center_y": 3.16,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_2",
+                "vent_to_name": "COR_1_25",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_8",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 7.32,
+                "y0": 5.81,
+                "z0": 0.0,
+                "x1": 7.34,
+                "y1": 6.62,
+                "z1": 2.0,
+                "dim_x": 0.02,
+                "dim_y": 0.81,
+                "dim_z": 2.0,
+                "center_x": 7.33,
+                "center_y": 6.21,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_3",
+                "vent_to_name": "ROOM_1_4",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_9",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 7.47,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 8.34,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.87,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 7.9,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_4",
+                "vent_to_name": "COR_1_24",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_10",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 6.04,
+                "y0": 10.49,
+                "z0": 0.0,
+                "x1": 6.06,
+                "y1": 11.46,
+                "z1": 2.0,
+                "dim_x": 0.02,
+                "dim_y": 0.97,
+                "dim_z": 2.0,
+                "center_x": 6.05,
+                "center_y": 10.97,
+                "center_z": 1.0,
+                "vent_from_name": "COR_1_24",
+                "vent_to_name": "STAI_1_28",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_11",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 5.0,
+                "y0": 12.62,
+                "z0": 0.0,
+                "x1": 5.96,
+                "y1": 12.64,
+                "z1": 2.0,
+                "dim_x": 0.96,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 5.48,
+                "center_y": 12.63,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_1",
+                "vent_to_name": "STAI_1_28",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_12",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 4.75,
+                "y0": 14.15,
+                "z0": 0.0,
+                "x1": 5.62,
+                "y1": 14.17,
+                "z1": 2.0,
+                "dim_x": 0.87,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 5.18,
+                "center_y": 14.16,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_1",
+                "vent_to_name": "ROOM_1_7",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_13",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 6.04,
+                "y0": 13.14,
+                "z0": 0.0,
+                "x1": 6.06,
+                "y1": 14.0,
+                "z1": 2.0,
+                "dim_x": 0.02,
+                "dim_y": 0.86,
+                "dim_z": 2.0,
+                "center_x": 6.05,
+                "center_y": 13.57,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_1",
+                "vent_to_name": "ROOM_1_6",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_14",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 11.09,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 11.98,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 11.53,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_15",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_15",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 13.07,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 13.96,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 13.51,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_14",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_16",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 19.05,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 19.95,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.9,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 19.5,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_13",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_17",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 21.03,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 21.92,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 21.47,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_12",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_18",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 26.84,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 27.73,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 27.28,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_11",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_19",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 28.82,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 29.71,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 29.26,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_10",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_20",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 34.68,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 35.57,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 35.12,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_9",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_21",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 36.66,
+                "y0": 7.94,
+                "z0": 0.0,
+                "x1": 37.55,
+                "y1": 7.96,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 37.1,
+                "center_y": 7.95,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_8",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_22",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 34.68,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 35.57,
+                "y1": 9.73,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 35.12,
+                "center_y": 9.72,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_17",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_23",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 36.66,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 37.55,
+                "y1": 9.73,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 37.1,
+                "center_y": 9.72,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_16",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_24",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 26.82,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 27.71,
+                "y1": 9.73,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 27.26,
+                "center_y": 9.72,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_19",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_25",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 28.8,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 29.69,
+                "y1": 9.73,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 29.24,
+                "center_y": 9.72,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_18",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_26",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 19.05,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 19.94,
+                "y1": 9.73,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 19.49,
+                "center_y": 9.72,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_21",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_27",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 21.03,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 21.92,
+                "y1": 9.73,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 21.47,
+                "center_y": 9.72,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_20",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_28",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 11.09,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 11.98,
+                "y1": 9.73,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 11.53,
+                "center_y": 9.72,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_23",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            },
+            {
+                "name": "C_1_29",
+                "type_pri": "HVENT",
+                "type_sec": "C",
+                "type_tri": "DOOR",
+                "x0": 13.07,
+                "y0": 9.71,
+                "z0": 0.0,
+                "x1": 13.96,
+                "y1": 9.73,
+                "z1": 2.0,
+                "dim_x": 0.89,
+                "dim_y": 0.02,
+                "dim_z": 2.0,
+                "center_x": 13.51,
+                "center_y": 9.72,
+                "center_z": 1.0,
+                "vent_from_name": "ROOM_1_22",
+                "vent_to_name": "COR_1_26",
+                "how_much_open": null
+            }
+        ]
+    },
+    "obstacles": {
+        "1": [
+            [
+                [
+                    11.98,
+                    9.72
+                ],
+                [
+                    12.48,
+                    9.72
+                ],
+                [
+                    12.48,
+                    9.71
+                ],
+                [
+                    11.98,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    11.09,
+                    9.71
+                ],
+                [
+                    8.53,
+                    9.71
+                ],
+                [
+                    8.53,
+                    9.72
+                ],
+                [
+                    11.09,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    36.25,
+                    0.47
+                ],
+                [
+                    36.25,
+                    7.95
+                ],
+                [
+                    36.24,
+                    7.95
+                ],
+                [
+                    36.24,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    5.96,
+                    12.63
+                ],
+                [
+                    6.04,
+                    12.63
+                ],
+                [
+                    6.04,
+                    12.62
+                ],
+                [
+                    5.96,
+                    12.62
+                ]
+            ],
+            [
+                [
+                    5.0,
+                    12.62
+                ],
+                [
+                    0.68,
+                    12.62
+                ],
+                [
+                    0.68,
+                    12.63
+                ],
+                [
+                    5.0,
+                    12.63
+                ]
+            ],
+            [
+                [
+                    44.73,
+                    2.79
+                ],
+                [
+                    44.73,
+                    0.47
+                ],
+                [
+                    44.72,
+                    0.47
+                ],
+                [
+                    44.72,
+                    2.79
+                ]
+            ],
+            [
+                [
+                    44.72,
+                    3.53
+                ],
+                [
+                    44.72,
+                    13.84
+                ],
+                [
+                    44.73,
+                    13.84
+                ],
+                [
+                    44.73,
+                    3.53
+                ]
+            ],
+            [
+                [
+                    27.73,
+                    7.95
+                ],
+                [
+                    28.32,
+                    7.95
+                ],
+                [
+                    28.32,
+                    7.94
+                ],
+                [
+                    27.73,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    26.84,
+                    7.94
+                ],
+                [
+                    24.38,
+                    7.94
+                ],
+                [
+                    24.38,
+                    7.95
+                ],
+                [
+                    26.84,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    6.05,
+                    13.14
+                ],
+                [
+                    6.05,
+                    12.62
+                ],
+                [
+                    6.04,
+                    12.62
+                ],
+                [
+                    6.04,
+                    13.14
+                ]
+            ],
+            [
+                [
+                    6.04,
+                    14.0
+                ],
+                [
+                    6.04,
+                    14.16
+                ],
+                [
+                    6.05,
+                    14.16
+                ],
+                [
+                    6.05,
+                    14.0
+                ]
+            ],
+            [
+                [
+                    4.62,
+                    12.62
+                ],
+                [
+                    4.62,
+                    14.16
+                ],
+                [
+                    4.61,
+                    14.16
+                ],
+                [
+                    4.61,
+                    12.62
+                ]
+            ],
+            [
+                [
+                    48.25,
+                    3.6
+                ],
+                [
+                    48.25,
+                    3.61
+                ],
+                [
+                    44.73,
+                    3.61
+                ],
+                [
+                    44.73,
+                    3.6
+                ]
+            ],
+            [
+                [
+                    32.28,
+                    0.47
+                ],
+                [
+                    32.28,
+                    0.48
+                ],
+                [
+                    28.33,
+                    0.48
+                ],
+                [
+                    28.33,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    8.34,
+                    7.95
+                ],
+                [
+                    8.53,
+                    7.95
+                ],
+                [
+                    8.53,
+                    7.94
+                ],
+                [
+                    8.34,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    7.47,
+                    7.94
+                ],
+                [
+                    7.33,
+                    7.94
+                ],
+                [
+                    7.33,
+                    7.95
+                ],
+                [
+                    7.47,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    47.66,
+                    17.17
+                ],
+                [
+                    47.66,
+                    17.18
+                ],
+                [
+                    40.2,
+                    17.18
+                ],
+                [
+                    40.2,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    19.94,
+                    9.72
+                ],
+                [
+                    20.39,
+                    9.72
+                ],
+                [
+                    20.39,
+                    9.71
+                ],
+                [
+                    19.94,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    19.05,
+                    9.71
+                ],
+                [
+                    16.44,
+                    9.71
+                ],
+                [
+                    16.44,
+                    9.72
+                ],
+                [
+                    19.05,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    8.52,
+                    17.17
+                ],
+                [
+                    8.52,
+                    17.18
+                ],
+                [
+                    4.62,
+                    17.18
+                ],
+                [
+                    4.62,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    8.52,
+                    9.71
+                ],
+                [
+                    8.52,
+                    12.63
+                ],
+                [
+                    8.53,
+                    12.63
+                ],
+                [
+                    8.53,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    32.28,
+                    9.71
+                ],
+                [
+                    32.28,
+                    17.18
+                ],
+                [
+                    32.27,
+                    17.18
+                ],
+                [
+                    32.27,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    8.53,
+                    14.15
+                ],
+                [
+                    8.53,
+                    17.18
+                ],
+                [
+                    8.52,
+                    17.18
+                ],
+                [
+                    8.52,
+                    14.15
+                ]
+            ],
+            [
+                [
+                    11.98,
+                    7.95
+                ],
+                [
+                    12.49,
+                    7.95
+                ],
+                [
+                    12.49,
+                    7.94
+                ],
+                [
+                    11.98,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    11.09,
+                    7.94
+                ],
+                [
+                    8.54,
+                    7.94
+                ],
+                [
+                    8.54,
+                    7.95
+                ],
+                [
+                    11.09,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    28.33,
+                    0.47
+                ],
+                [
+                    28.33,
+                    7.95
+                ],
+                [
+                    28.32,
+                    7.95
+                ],
+                [
+                    28.32,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    5.89,
+                    4.71
+                ],
+                [
+                    5.89,
+                    7.95
+                ],
+                [
+                    5.88,
+                    7.95
+                ],
+                [
+                    5.88,
+                    4.71
+                ]
+            ],
+            [
+                [
+                    11.98,
+                    7.95
+                ],
+                [
+                    13.07,
+                    7.95
+                ],
+                [
+                    13.07,
+                    7.94
+                ],
+                [
+                    11.98,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    13.96,
+                    7.95
+                ],
+                [
+                    19.05,
+                    7.95
+                ],
+                [
+                    19.05,
+                    7.94
+                ],
+                [
+                    13.96,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    19.95,
+                    7.95
+                ],
+                [
+                    21.03,
+                    7.95
+                ],
+                [
+                    21.03,
+                    7.94
+                ],
+                [
+                    19.95,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    21.92,
+                    7.95
+                ],
+                [
+                    26.84,
+                    7.95
+                ],
+                [
+                    26.84,
+                    7.94
+                ],
+                [
+                    21.92,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    27.73,
+                    7.95
+                ],
+                [
+                    28.82,
+                    7.95
+                ],
+                [
+                    28.82,
+                    7.94
+                ],
+                [
+                    27.73,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    29.71,
+                    7.95
+                ],
+                [
+                    34.68,
+                    7.95
+                ],
+                [
+                    34.68,
+                    7.94
+                ],
+                [
+                    29.71,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    35.57,
+                    7.95
+                ],
+                [
+                    36.66,
+                    7.95
+                ],
+                [
+                    36.66,
+                    7.94
+                ],
+                [
+                    35.57,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    37.55,
+                    7.95
+                ],
+                [
+                    40.19,
+                    7.95
+                ],
+                [
+                    40.19,
+                    7.94
+                ],
+                [
+                    37.55,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    11.09,
+                    7.94
+                ],
+                [
+                    8.53,
+                    7.94
+                ],
+                [
+                    8.53,
+                    7.95
+                ],
+                [
+                    11.09,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    8.52,
+                    9.71
+                ],
+                [
+                    8.52,
+                    9.72
+                ],
+                [
+                    8.53,
+                    9.72
+                ],
+                [
+                    8.53,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    28.32,
+                    0.47
+                ],
+                [
+                    28.32,
+                    0.48
+                ],
+                [
+                    24.38,
+                    0.48
+                ],
+                [
+                    24.38,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    41.82,
+                    13.84
+                ],
+                [
+                    47.66,
+                    13.84
+                ],
+                [
+                    47.66,
+                    13.83
+                ],
+                [
+                    41.82,
+                    13.83
+                ]
+            ],
+            [
+                [
+                    40.89,
+                    13.83
+                ],
+                [
+                    40.2,
+                    13.83
+                ],
+                [
+                    40.2,
+                    13.84
+                ],
+                [
+                    40.89,
+                    13.84
+                ]
+            ],
+            [
+                [
+                    28.31,
+                    17.17
+                ],
+                [
+                    28.31,
+                    17.18
+                ],
+                [
+                    24.36,
+                    17.18
+                ],
+                [
+                    24.36,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    6.04,
+                    9.71
+                ],
+                [
+                    6.04,
+                    9.72
+                ],
+                [
+                    0.68,
+                    9.72
+                ],
+                [
+                    0.68,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    40.2,
+                    0.47
+                ],
+                [
+                    40.2,
+                    7.95
+                ],
+                [
+                    40.19,
+                    7.95
+                ],
+                [
+                    40.19,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    20.42,
+                    0.47
+                ],
+                [
+                    20.42,
+                    7.95
+                ],
+                [
+                    20.41,
+                    7.95
+                ],
+                [
+                    20.41,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    35.57,
+                    9.72
+                ],
+                [
+                    36.66,
+                    9.72
+                ],
+                [
+                    36.66,
+                    9.71
+                ],
+                [
+                    35.57,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    37.55,
+                    9.72
+                ],
+                [
+                    40.19,
+                    9.72
+                ],
+                [
+                    40.19,
+                    9.71
+                ],
+                [
+                    37.55,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    34.68,
+                    9.71
+                ],
+                [
+                    29.69,
+                    9.71
+                ],
+                [
+                    29.69,
+                    9.72
+                ],
+                [
+                    34.68,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    28.8,
+                    9.71
+                ],
+                [
+                    27.71,
+                    9.71
+                ],
+                [
+                    27.71,
+                    9.72
+                ],
+                [
+                    28.8,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    26.82,
+                    9.71
+                ],
+                [
+                    21.92,
+                    9.71
+                ],
+                [
+                    21.92,
+                    9.72
+                ],
+                [
+                    26.82,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    21.03,
+                    9.71
+                ],
+                [
+                    19.94,
+                    9.71
+                ],
+                [
+                    19.94,
+                    9.72
+                ],
+                [
+                    21.03,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    19.05,
+                    9.71
+                ],
+                [
+                    13.96,
+                    9.71
+                ],
+                [
+                    13.96,
+                    9.72
+                ],
+                [
+                    19.05,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    13.07,
+                    9.71
+                ],
+                [
+                    11.98,
+                    9.71
+                ],
+                [
+                    11.98,
+                    9.72
+                ],
+                [
+                    13.07,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    11.09,
+                    9.71
+                ],
+                [
+                    8.53,
+                    9.71
+                ],
+                [
+                    8.53,
+                    9.72
+                ],
+                [
+                    11.09,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    16.46,
+                    0.47
+                ],
+                [
+                    16.46,
+                    7.95
+                ],
+                [
+                    16.45,
+                    7.95
+                ],
+                [
+                    16.45,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    20.39,
+                    17.17
+                ],
+                [
+                    20.39,
+                    17.18
+                ],
+                [
+                    16.44,
+                    17.18
+                ],
+                [
+                    16.44,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    44.72,
+                    0.47
+                ],
+                [
+                    44.72,
+                    0.48
+                ],
+                [
+                    40.2,
+                    0.48
+                ],
+                [
+                    40.2,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    24.38,
+                    0.47
+                ],
+                [
+                    24.38,
+                    7.95
+                ],
+                [
+                    24.37,
+                    7.95
+                ],
+                [
+                    24.37,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    8.53,
+                    9.71
+                ],
+                [
+                    8.53,
+                    17.18
+                ],
+                [
+                    8.52,
+                    17.18
+                ],
+                [
+                    8.52,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    12.49,
+                    9.71
+                ],
+                [
+                    12.49,
+                    17.18
+                ],
+                [
+                    12.48,
+                    17.18
+                ],
+                [
+                    12.48,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    32.27,
+                    17.17
+                ],
+                [
+                    32.27,
+                    17.18
+                ],
+                [
+                    28.32,
+                    17.18
+                ],
+                [
+                    28.32,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    32.29,
+                    0.47
+                ],
+                [
+                    32.29,
+                    7.95
+                ],
+                [
+                    32.28,
+                    7.95
+                ],
+                [
+                    32.28,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    12.5,
+                    0.47
+                ],
+                [
+                    12.5,
+                    7.95
+                ],
+                [
+                    12.49,
+                    7.95
+                ],
+                [
+                    12.49,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    6.05,
+                    10.49
+                ],
+                [
+                    6.05,
+                    9.71
+                ],
+                [
+                    6.04,
+                    9.71
+                ],
+                [
+                    6.04,
+                    10.49
+                ]
+            ],
+            [
+                [
+                    6.04,
+                    11.46
+                ],
+                [
+                    6.04,
+                    12.63
+                ],
+                [
+                    6.05,
+                    12.63
+                ],
+                [
+                    6.05,
+                    11.46
+                ]
+            ],
+            [
+                [
+                    12.48,
+                    17.17
+                ],
+                [
+                    12.48,
+                    17.18
+                ],
+                [
+                    8.53,
+                    17.18
+                ],
+                [
+                    8.53,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    47.67,
+                    14.87
+                ],
+                [
+                    47.67,
+                    13.83
+                ],
+                [
+                    47.66,
+                    13.83
+                ],
+                [
+                    47.66,
+                    14.87
+                ]
+            ],
+            [
+                [
+                    47.66,
+                    16.62
+                ],
+                [
+                    47.66,
+                    17.18
+                ],
+                [
+                    47.67,
+                    17.18
+                ],
+                [
+                    47.67,
+                    16.62
+                ]
+            ],
+            [
+                [
+                    0.68,
+                    10.3
+                ],
+                [
+                    0.68,
+                    9.71
+                ],
+                [
+                    0.67,
+                    9.71
+                ],
+                [
+                    0.67,
+                    10.3
+                ]
+            ],
+            [
+                [
+                    0.67,
+                    11.99
+                ],
+                [
+                    0.67,
+                    12.63
+                ],
+                [
+                    0.68,
+                    12.63
+                ],
+                [
+                    0.68,
+                    11.99
+                ]
+            ],
+            [
+                [
+                    40.2,
+                    9.71
+                ],
+                [
+                    40.2,
+                    17.18
+                ],
+                [
+                    40.19,
+                    17.18
+                ],
+                [
+                    40.19,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    7.32,
+                    4.71
+                ],
+                [
+                    4.76,
+                    4.71
+                ],
+                [
+                    4.76,
+                    4.72
+                ],
+                [
+                    7.32,
+                    4.72
+                ]
+            ],
+            [
+                [
+                    13.96,
+                    7.95
+                ],
+                [
+                    16.45,
+                    7.95
+                ],
+                [
+                    16.45,
+                    7.94
+                ],
+                [
+                    13.96,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    13.07,
+                    7.94
+                ],
+                [
+                    12.5,
+                    7.94
+                ],
+                [
+                    12.5,
+                    7.95
+                ],
+                [
+                    13.07,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    28.32,
+                    9.71
+                ],
+                [
+                    28.32,
+                    17.18
+                ],
+                [
+                    28.31,
+                    17.18
+                ],
+                [
+                    28.31,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    8.54,
+                    0.47
+                ],
+                [
+                    8.54,
+                    7.95
+                ],
+                [
+                    8.53,
+                    7.95
+                ],
+                [
+                    8.53,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    41.82,
+                    13.84
+                ],
+                [
+                    44.72,
+                    13.84
+                ],
+                [
+                    44.72,
+                    13.83
+                ],
+                [
+                    41.82,
+                    13.83
+                ]
+            ],
+            [
+                [
+                    40.89,
+                    13.83
+                ],
+                [
+                    40.2,
+                    13.83
+                ],
+                [
+                    40.2,
+                    13.84
+                ],
+                [
+                    40.89,
+                    13.84
+                ]
+            ],
+            [
+                [
+                    21.92,
+                    7.95
+                ],
+                [
+                    24.37,
+                    7.95
+                ],
+                [
+                    24.37,
+                    7.94
+                ],
+                [
+                    21.92,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    21.03,
+                    7.94
+                ],
+                [
+                    20.42,
+                    7.94
+                ],
+                [
+                    20.42,
+                    7.95
+                ],
+                [
+                    21.03,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    6.05,
+                    10.49
+                ],
+                [
+                    6.05,
+                    7.94
+                ],
+                [
+                    6.04,
+                    7.94
+                ],
+                [
+                    6.04,
+                    10.49
+                ]
+            ],
+            [
+                [
+                    6.04,
+                    11.46
+                ],
+                [
+                    6.04,
+                    12.63
+                ],
+                [
+                    6.05,
+                    12.63
+                ],
+                [
+                    6.05,
+                    11.46
+                ]
+            ],
+            [
+                [
+                    8.54,
+                    0.47
+                ],
+                [
+                    8.54,
+                    4.72
+                ],
+                [
+                    8.53,
+                    4.72
+                ],
+                [
+                    8.53,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    12.49,
+                    0.47
+                ],
+                [
+                    12.49,
+                    0.48
+                ],
+                [
+                    8.54,
+                    0.48
+                ],
+                [
+                    8.54,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    8.53,
+                    12.62
+                ],
+                [
+                    8.53,
+                    14.16
+                ],
+                [
+                    8.52,
+                    14.16
+                ],
+                [
+                    8.52,
+                    12.62
+                ]
+            ],
+            [
+                [
+                    7.32,
+                    4.71
+                ],
+                [
+                    7.32,
+                    4.72
+                ],
+                [
+                    5.89,
+                    4.72
+                ],
+                [
+                    5.89,
+                    4.71
+                ]
+            ],
+            [
+                [
+                    40.2,
+                    13.83
+                ],
+                [
+                    40.2,
+                    17.18
+                ],
+                [
+                    40.19,
+                    17.18
+                ],
+                [
+                    40.19,
+                    13.83
+                ]
+            ],
+            [
+                [
+                    48.26,
+                    0.47
+                ],
+                [
+                    48.26,
+                    3.61
+                ],
+                [
+                    48.25,
+                    3.61
+                ],
+                [
+                    48.25,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    13.96,
+                    9.72
+                ],
+                [
+                    16.43,
+                    9.72
+                ],
+                [
+                    16.43,
+                    9.71
+                ],
+                [
+                    13.96,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    13.07,
+                    9.71
+                ],
+                [
+                    12.49,
+                    9.71
+                ],
+                [
+                    12.49,
+                    9.72
+                ],
+                [
+                    13.07,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    8.52,
+                    14.15
+                ],
+                [
+                    8.52,
+                    14.16
+                ],
+                [
+                    6.05,
+                    14.16
+                ],
+                [
+                    6.05,
+                    14.15
+                ]
+            ],
+            [
+                [
+                    40.19,
+                    9.71
+                ],
+                [
+                    40.19,
+                    9.72
+                ],
+                [
+                    40.2,
+                    9.72
+                ],
+                [
+                    40.2,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    16.44,
+                    9.71
+                ],
+                [
+                    16.44,
+                    17.18
+                ],
+                [
+                    16.43,
+                    17.18
+                ],
+                [
+                    16.43,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    16.43,
+                    17.17
+                ],
+                [
+                    16.43,
+                    17.18
+                ],
+                [
+                    12.49,
+                    17.18
+                ],
+                [
+                    12.49,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    44.73,
+                    2.79
+                ],
+                [
+                    44.73,
+                    0.47
+                ],
+                [
+                    44.72,
+                    0.47
+                ],
+                [
+                    44.72,
+                    2.79
+                ]
+            ],
+            [
+                [
+                    44.72,
+                    3.53
+                ],
+                [
+                    44.72,
+                    3.61
+                ],
+                [
+                    44.73,
+                    3.61
+                ],
+                [
+                    44.73,
+                    3.53
+                ]
+            ],
+            [
+                [
+                    5.62,
+                    14.16
+                ],
+                [
+                    8.52,
+                    14.16
+                ],
+                [
+                    8.52,
+                    14.15
+                ],
+                [
+                    5.62,
+                    14.15
+                ]
+            ],
+            [
+                [
+                    4.75,
+                    14.15
+                ],
+                [
+                    4.62,
+                    14.15
+                ],
+                [
+                    4.62,
+                    14.16
+                ],
+                [
+                    4.75,
+                    14.16
+                ]
+            ],
+            [
+                [
+                    35.57,
+                    9.72
+                ],
+                [
+                    36.23,
+                    9.72
+                ],
+                [
+                    36.23,
+                    9.71
+                ],
+                [
+                    35.57,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    34.68,
+                    9.71
+                ],
+                [
+                    32.28,
+                    9.71
+                ],
+                [
+                    32.28,
+                    9.72
+                ],
+                [
+                    34.68,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    29.69,
+                    9.72
+                ],
+                [
+                    32.27,
+                    9.72
+                ],
+                [
+                    32.27,
+                    9.71
+                ],
+                [
+                    29.69,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    28.8,
+                    9.71
+                ],
+                [
+                    28.32,
+                    9.71
+                ],
+                [
+                    28.32,
+                    9.72
+                ],
+                [
+                    28.8,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    7.32,
+                    7.94
+                ],
+                [
+                    7.32,
+                    7.95
+                ],
+                [
+                    5.89,
+                    7.95
+                ],
+                [
+                    5.89,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    7.33,
+                    5.81
+                ],
+                [
+                    7.33,
+                    4.71
+                ],
+                [
+                    7.32,
+                    4.71
+                ],
+                [
+                    7.32,
+                    5.81
+                ]
+            ],
+            [
+                [
+                    7.32,
+                    6.62
+                ],
+                [
+                    7.32,
+                    7.95
+                ],
+                [
+                    7.33,
+                    7.95
+                ],
+                [
+                    7.33,
+                    6.62
+                ]
+            ],
+            [
+                [
+                    4.76,
+                    0.47
+                ],
+                [
+                    4.76,
+                    4.72
+                ],
+                [
+                    4.75,
+                    4.72
+                ],
+                [
+                    4.75,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    48.25,
+                    0.47
+                ],
+                [
+                    48.25,
+                    0.48
+                ],
+                [
+                    44.73,
+                    0.48
+                ],
+                [
+                    44.73,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    19.95,
+                    7.95
+                ],
+                [
+                    20.41,
+                    7.95
+                ],
+                [
+                    20.41,
+                    7.94
+                ],
+                [
+                    19.95,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    19.05,
+                    7.94
+                ],
+                [
+                    16.46,
+                    7.94
+                ],
+                [
+                    16.46,
+                    7.95
+                ],
+                [
+                    19.05,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    37.55,
+                    7.95
+                ],
+                [
+                    40.19,
+                    7.95
+                ],
+                [
+                    40.19,
+                    7.94
+                ],
+                [
+                    37.55,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    36.66,
+                    7.94
+                ],
+                [
+                    36.25,
+                    7.94
+                ],
+                [
+                    36.25,
+                    7.95
+                ],
+                [
+                    36.66,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    24.36,
+                    9.71
+                ],
+                [
+                    24.36,
+                    17.18
+                ],
+                [
+                    24.35,
+                    17.18
+                ],
+                [
+                    24.35,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    16.45,
+                    0.47
+                ],
+                [
+                    16.45,
+                    0.48
+                ],
+                [
+                    12.5,
+                    0.48
+                ],
+                [
+                    12.5,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    37.55,
+                    9.72
+                ],
+                [
+                    40.19,
+                    9.72
+                ],
+                [
+                    40.19,
+                    9.71
+                ],
+                [
+                    37.55,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    36.66,
+                    9.71
+                ],
+                [
+                    36.24,
+                    9.71
+                ],
+                [
+                    36.24,
+                    9.72
+                ],
+                [
+                    36.66,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    21.92,
+                    9.72
+                ],
+                [
+                    24.35,
+                    9.72
+                ],
+                [
+                    24.35,
+                    9.71
+                ],
+                [
+                    21.92,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    21.03,
+                    9.71
+                ],
+                [
+                    20.4,
+                    9.71
+                ],
+                [
+                    20.4,
+                    9.72
+                ],
+                [
+                    21.03,
+                    9.72
+                ]
+            ],
+            [
+                [
+                    8.53,
+                    0.47
+                ],
+                [
+                    8.53,
+                    0.48
+                ],
+                [
+                    4.76,
+                    0.48
+                ],
+                [
+                    4.76,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    8.34,
+                    7.95
+                ],
+                [
+                    8.52,
+                    7.95
+                ],
+                [
+                    8.52,
+                    7.94
+                ],
+                [
+                    8.34,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    7.47,
+                    7.94
+                ],
+                [
+                    6.05,
+                    7.94
+                ],
+                [
+                    6.05,
+                    7.95
+                ],
+                [
+                    7.47,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    4.62,
+                    14.15
+                ],
+                [
+                    4.62,
+                    17.18
+                ],
+                [
+                    4.61,
+                    17.18
+                ],
+                [
+                    4.61,
+                    14.15
+                ]
+            ],
+            [
+                [
+                    5.62,
+                    14.16
+                ],
+                [
+                    6.04,
+                    14.16
+                ],
+                [
+                    6.04,
+                    14.15
+                ],
+                [
+                    5.62,
+                    14.15
+                ]
+            ],
+            [
+                [
+                    4.75,
+                    14.15
+                ],
+                [
+                    4.62,
+                    14.15
+                ],
+                [
+                    4.62,
+                    14.16
+                ],
+                [
+                    4.75,
+                    14.16
+                ]
+            ],
+            [
+                [
+                    8.52,
+                    12.62
+                ],
+                [
+                    8.52,
+                    12.63
+                ],
+                [
+                    6.05,
+                    12.63
+                ],
+                [
+                    6.05,
+                    12.62
+                ]
+            ],
+            [
+                [
+                    40.19,
+                    0.47
+                ],
+                [
+                    40.19,
+                    0.48
+                ],
+                [
+                    36.25,
+                    0.48
+                ],
+                [
+                    36.25,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    36.24,
+                    0.47
+                ],
+                [
+                    36.24,
+                    0.48
+                ],
+                [
+                    32.29,
+                    0.48
+                ],
+                [
+                    32.29,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    20.41,
+                    0.47
+                ],
+                [
+                    20.41,
+                    0.48
+                ],
+                [
+                    16.46,
+                    0.48
+                ],
+                [
+                    16.46,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    36.24,
+                    9.71
+                ],
+                [
+                    36.24,
+                    17.18
+                ],
+                [
+                    36.23,
+                    17.18
+                ],
+                [
+                    36.23,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    35.57,
+                    7.95
+                ],
+                [
+                    36.24,
+                    7.95
+                ],
+                [
+                    36.24,
+                    7.94
+                ],
+                [
+                    35.57,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    34.68,
+                    7.94
+                ],
+                [
+                    32.29,
+                    7.94
+                ],
+                [
+                    32.29,
+                    7.95
+                ],
+                [
+                    34.68,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    5.96,
+                    12.63
+                ],
+                [
+                    6.04,
+                    12.63
+                ],
+                [
+                    6.04,
+                    12.62
+                ],
+                [
+                    5.96,
+                    12.62
+                ]
+            ],
+            [
+                [
+                    5.0,
+                    12.62
+                ],
+                [
+                    4.62,
+                    12.62
+                ],
+                [
+                    4.62,
+                    12.63
+                ],
+                [
+                    5.0,
+                    12.63
+                ]
+            ],
+            [
+                [
+                    36.23,
+                    17.17
+                ],
+                [
+                    36.23,
+                    17.18
+                ],
+                [
+                    32.28,
+                    17.18
+                ],
+                [
+                    32.28,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    20.4,
+                    9.71
+                ],
+                [
+                    20.4,
+                    17.18
+                ],
+                [
+                    20.39,
+                    17.18
+                ],
+                [
+                    20.39,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    24.37,
+                    0.47
+                ],
+                [
+                    24.37,
+                    0.48
+                ],
+                [
+                    20.42,
+                    0.48
+                ],
+                [
+                    20.42,
+                    0.47
+                ]
+            ],
+            [
+                [
+                    40.2,
+                    7.94
+                ],
+                [
+                    40.2,
+                    0.47
+                ],
+                [
+                    40.19,
+                    0.47
+                ],
+                [
+                    40.19,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    40.19,
+                    9.71
+                ],
+                [
+                    40.19,
+                    13.84
+                ],
+                [
+                    40.2,
+                    13.84
+                ],
+                [
+                    40.2,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    40.19,
+                    17.17
+                ],
+                [
+                    40.19,
+                    17.18
+                ],
+                [
+                    36.24,
+                    17.18
+                ],
+                [
+                    36.24,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    24.35,
+                    17.17
+                ],
+                [
+                    24.35,
+                    17.18
+                ],
+                [
+                    20.4,
+                    17.18
+                ],
+                [
+                    20.4,
+                    17.17
+                ]
+            ],
+            [
+                [
+                    29.71,
+                    7.95
+                ],
+                [
+                    32.28,
+                    7.95
+                ],
+                [
+                    32.28,
+                    7.94
+                ],
+                [
+                    29.71,
+                    7.94
+                ]
+            ],
+            [
+                [
+                    28.82,
+                    7.94
+                ],
+                [
+                    28.33,
+                    7.94
+                ],
+                [
+                    28.33,
+                    7.95
+                ],
+                [
+                    28.82,
+                    7.95
+                ]
+            ],
+            [
+                [
+                    8.54,
+                    4.71
+                ],
+                [
+                    8.54,
+                    7.95
+                ],
+                [
+                    8.53,
+                    7.95
+                ],
+                [
+                    8.53,
+                    4.71
+                ]
+            ],
+            [
+                [
+                    27.71,
+                    9.72
+                ],
+                [
+                    28.31,
+                    9.72
+                ],
+                [
+                    28.31,
+                    9.71
+                ],
+                [
+                    27.71,
+                    9.71
+                ]
+            ],
+            [
+                [
+                    26.82,
+                    9.71
+                ],
+                [
+                    24.36,
+                    9.71
+                ],
+                [
+                    24.36,
+                    9.72
+                ],
+                [
+                    26.82,
+                    9.72
+                ]
+            ]
+        ]
+    },
+    "compa_intersects_doors": {
+        "COR_1_24": [
+            "HOLE_1_2",
+            "C_1_9",
+            "C_1_10"
+        ],
+        "COR_1_25": [
+            "HOLE_1_1",
+            "C_1_6",
+            "C_1_7"
+        ],
+        "COR_1_26": [
+            "HOLE_1_1",
+            "HOLE_1_2",
+            "C_1_14",
+            "C_1_15",
+            "C_1_16",
+            "C_1_17",
+            "C_1_18",
+            "C_1_19",
+            "C_1_20",
+            "C_1_21",
+            "C_1_22",
+            "C_1_23",
+            "C_1_24",
+            "C_1_25",
+            "C_1_26",
+            "C_1_27",
+            "C_1_28",
+            "C_1_29"
+        ],
+        "ROOM_1_1": [
+            "C_1_11",
+            "C_1_12",
+            "C_1_13"
+        ],
+        "ROOM_1_10": [
+            "C_1_19"
+        ],
+        "ROOM_1_11": [
+            "C_1_18"
+        ],
+        "ROOM_1_12": [
+            "C_1_17"
+        ],
+        "ROOM_1_13": [
+            "C_1_16"
+        ],
+        "ROOM_1_14": [
+            "C_1_15"
+        ],
+        "ROOM_1_15": [
+            "C_1_14"
+        ],
+        "ROOM_1_16": [
+            "C_1_23"
+        ],
+        "ROOM_1_17": [
+            "C_1_22"
+        ],
+        "ROOM_1_18": [
+            "C_1_25"
+        ],
+        "ROOM_1_19": [
+            "C_1_24"
+        ],
+        "ROOM_1_2": [
+            "C_1_7"
+        ],
+        "ROOM_1_20": [
+            "C_1_27"
+        ],
+        "ROOM_1_21": [
+            "C_1_26"
+        ],
+        "ROOM_1_22": [
+            "C_1_29"
+        ],
+        "ROOM_1_23": [
+            "C_1_28"
+        ],
+        "ROOM_1_3": [
+            "C_1_8"
+        ],
+        "ROOM_1_4": [
+            "HOLE_1_3",
+            "C_1_8",
+            "C_1_9"
+        ],
+        "ROOM_1_5": [
+            "HOLE_1_3"
+        ],
+        "ROOM_1_6": [
+            "C_1_13"
+        ],
+        "ROOM_1_7": [
+            "C_1_12"
+        ],
+        "ROOM_1_8": [
+            "C_1_21"
+        ],
+        "ROOM_1_9": [
+            "C_1_20"
+        ],
+        "STAI_1_27": [
+            "C_1_5",
+            "C_1_6"
+        ],
+        "STAI_1_28": [
+            "C_1_4",
+            "C_1_10",
+            "C_1_11"
+        ],
+        "outside": [
+            "C_1_4",
+            "C_1_5"
+        ]
+    }
+}
