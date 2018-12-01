@@ -1,7 +1,8 @@
 import sqlite3
 sql = sqlite3.connect("/home/mateusz/Pyton/baza1.sql")
+sql.isolation_level = None
 db = sql.cursor()
-
+buffer = ""
 # query = 'CREATE TABLE Studenci (id int, imie varchar, nazwisko varchar, odznaka boolean, jakas)'
 # query = 'CREATE TABLE Przedmioty (id int, przedmiot_nazwa text)'
 # query = "CREATE TABLE Studenci_Przedmioty (id_studenta, id_przedmiotu)"
@@ -35,9 +36,15 @@ db = sql.cursor()
 # IS NULL; IS NOT NULL, ANY, ALL
 # MIN(); MAX(); COUNT(); AVG(); SUM();
 # sql.commit()
-# query = 'SELECT /* kolumn name */ rowid, imie, nazwisko FROM Studenci --Comment'
-# z = db.execute(query)
+
+# query = "CREATE TABLE Orders (ID int PRIMARY KEY, OrderNumber int NOT NULL, OrderDate date DEFAULT (datetime('now', 'localtime')))"
+# query = 'SELECT rowid, OrderNumber, OrderDate FROM Orders WHERE OrderDate>"2018-12-01 14:13:50"'
+# query = "CREATE VIEW [Students] AS SELECT imie, nazwisko FROM Studenci"
+# query = "SELECT * FROM [Students]"
+z = db.execute('SELECT REPLACE(nazwisko, "owak", "owakowski") FROM Studenci WHERE nazwisko LIKE "%owak"')
 # print(z.fetchall())
+# sql.commit()
+print(z.fetchall())
 query = "SELECT przedmiot_nazwa, nazwisko, ocena FROM Oceny, Studenci, Przedmioty WHERE Oceny.idstudenta = Studenci.id AND Oceny.idprzedmiotu = Przedmioty.id"
 z = db.execute(query)
 print(z.fetchall())
@@ -59,3 +66,23 @@ print("SELECT * FROM Przedmioty:", z.fetchall())
 query = "SELECT * FROM Studenci_Przedmioty"
 z = db.execute(query)
 print("SELECT * FROM Studenci_Przedmioty:", z.fetchall())
+print("Enter your SQL commands to execute in sqlite3.")
+print ("Enter a blank line to exit.")
+
+while True:
+    line = input()
+    if line == "":
+        break
+    buffer += line
+    if sqlite3.complete_statement(buffer):
+        try:
+            buffer = buffer.strip()
+            db.execute(buffer)
+
+            if buffer.lstrip().upper().startswith("SELECT"):
+                print(db.fetchall())
+        except sqlite3.Error as e:
+            print("An error occurred:", e.args[0])
+        buffer = ""
+
+sql.close()
