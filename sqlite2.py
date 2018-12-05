@@ -13,19 +13,8 @@ db = sql.cursor()
 # query ='CREATE TABLE przedmioty(id,przedmiot)'
 # query ='CREATE TABLE studenci_przedmioty(id,idstudenta, idprzedmiotu)'
 
-# query = 'INSERT INTO studenci(id,nazwisko,imie,id_studiow) values (1, "Kowalski", "Wojtek", 1)'
-# query = 'INSERT INTO studenci(id,nazwisko,imie,id_studiow) values (2, "Zawistowski", "Hubert", 1)'
-# query = 'INSERT INTO studenci(id,nazwisko,imie,id_studiow) values (3, "Mackiewicz", "Mateusz", 1)'
-# query = 'INSERT INTO studia(id,studia) values (1, "SP-PK16")'
-# query = 'INSERT INTO studia(id,studia) values (2, "SP-PK17")'
-# query = 'INSERT INTO studia(id,studia) values (3, "SP-PK18")'
-# query = 'INSERT INTO przedmioty(id,przedmiot) values (1, "matematyka")'
-# query = 'INSERT INTO przedmioty(id,przedmiot) values (103, "chemia")'
-# query = 'INSERT INTO studenci_przedmioty(id,idstudenta, idprzedmiotu) values (1,8,100)'
-# query = 'INSERT INTO studenci_przedmioty(id,idstudenta, idprzedmiotu) values (7,8,101)'
-# query = "UPDATE studenci_przedmioty set id=6 WHERE id=7"
-# query = 'UPDATE przedmioty set id=6 WHERE id=7'
-# query = 'UPDATE studenci set id_studiow=NULL WHERE id=8'
+# query = 'UPDATE przedmioty SET id=6 WHERE id=7'
+# query = 'UPDATE studenci SET id_studiow=NULL WHERE id=8'
 # z = db.execute(query)
 # print(z.fetchall())
 query = "SELECT * FROM studenci ORDER BY 1"
