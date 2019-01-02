@@ -458,4 +458,24 @@ pizza = Pizza(["cheese", "tomato"])
 # match = re.search(pattern, str)
 # if match:
 #    print(match.group())
-
+#help()
+#dir()
+#hasattr()
+#id()
+#type()
+#repr()
+#callable()
+#issubclass()
+#isinstance()
+#__doc__
+#__name__
+#def print_msg(number):
+#    print(number)
+#    def printer():
+#        nonlocal number
+#        number+=2
+#        print(number)
+#    printer()
+#    print(number)
+#
+#print_msg(9)
