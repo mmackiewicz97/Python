@@ -7,8 +7,9 @@ from matplotlib import patches as mpaths
 #różna prędkość w zależności od gęstości
 
 #10 strona książki człowiek 0,5 m^2
+
 liczba_agentow = 20
-liczba_krokow = 100
+liczba_krokow = 150
 czas_interwalu = 50
 class Agent:
 
@@ -73,6 +74,11 @@ class Pedestrians:
                         i.set_speed(a3*0.4/9)
                     elif float(i.position[1])>9 and float(i.position[1])<=12:
                         i.set_speed(a4*0.4/9)
+# round((wysokość klatki/wysokość piętra), 0) na określenie piętra
+
+# sprawdzenie czy może wejść, czy gęstość nie jest większa niż powierzchnia klatki
+# jak nie ma to czeka na wejście
+
             #print(x, a1*0.4/9, a2*0.4/9, a3*0.4/9, a4*0.4/9) #ilość osób na danym piętrze * powierzchnia osoby / powierzchnia piętra
             self.traj.append(traj)
 A = Pedestrians()

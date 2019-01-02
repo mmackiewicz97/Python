@@ -11,10 +11,10 @@ def pobierz_warunki_meteo():
     with open("meteo.txt", "a") as plik:
         plik.write(teraz+"\n" + czesc2[0] + "\n***********************************\n")
     print("Pobrano dane meteo", teraz)
-
-for i in range(3):
-    time.sleep(2)
-    pobierz_warunki_meteo()
+pobierz_warunki_meteo()
+#for i in range(3):
+#    time.sleep(2)
+#    pobierz_warunki_meteo()
 # while True:
 #     time.sleep(3600)
 #     pobierz_warunki_meteo()
