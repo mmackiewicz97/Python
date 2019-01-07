@@ -1,4 +1,5 @@
 import numpy.random as random
+import math
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
@@ -7,10 +8,14 @@ from matplotlib import patches as mpaths
 #różna prędkość w zależności od gęstości
 
 #10 strona książki człowiek 0,5 m^2
+# sprawdzenie czy może wejść, czy gęstość nie jest większa niż powierzchnia klatki
+# jak nie ma to czeka na wejście
 
-liczba_agentow = 20
+liczba_agentow = 10
 liczba_krokow = 150
 czas_interwalu = 50
+area_of_people = 0.4
+area_of_staircase = 9
 class Agent:
 
     def __init__(self):
@@ -22,17 +27,15 @@ class Agent:
             x = self.position[0]+(self.speed/80)
             y = self.position[1]
             self.position = (x, y)
-            return float(x), float(y)
         elif self.position[0] > 4:
             x = self.position[0]-(self.speed/80)
             y = self.position[1]
             self.position = (x, y)
-            return float(x), float(y)
         else:
             x = self.position[0]
             y = self.position[1]-(self.speed/10)
             self.position = (x, y)
-            return float(x), float(y)
+        return float(x), float(y)
     def set_speed(self, ro):
         self.speed =(-262.23776224*ro**4+517.09401709*ro**3-273.42657343*ro**2-25.794483294*ro+48.531468531)/20
 
@@ -48,15 +51,15 @@ class Pedestrians:
             self.agent.append(Agent())
     def do_traj(self):
         for x in range(liczba_krokow):
-            a1 = 0
+            traj = []
+            a1 = 0 
             a2 = 0
             a3 = 0
             a4 = 0
-            traj = []
             for i in self.agent:
                 traj.append(i.get_trajectory())
-            for i in traj:
-                if i[1] <= 3:
+            for i in traj:  # traj=[ [(x1, y1),(x2,y2)], [(x12, y12),(x22, y22)] ] -pozycje punktow po czasie
+                if i[1] < 3 and i[1]>0:
                     a1 +=1
                 elif i[1] >3 and i[1]<=6:
                     a2 +=1
@@ -64,22 +67,41 @@ class Pedestrians:
                     a3 +=1
                 elif i[1] >9 and i[1]<=12:
                     a4 +=1
-            for i in self.agent:
-                if i.position[0] > 1 and i.position[0] < 4:
-                    if float(i.position[1]) <=3:
-                        i.set_speed(a1*0.4/9)
-                    elif float(i.position[1])>3 and float(i.position[1])<=6:
-                        i.set_speed(a2*0.4/9)
-                    elif float(i.position[1])>6 and float(i.position[1])<=9:
-                        i.set_speed(a3*0.4/9)
-                    elif float(i.position[1])>9 and float(i.position[1])<=12:
-                        i.set_speed(a4*0.4/9)
-# round((wysokość klatki/wysokość piętra), 0) na określenie piętra
+            count_floor = {}
+            ro = {}
+            for position in traj:  
+                count_floor[math.floor(position[1]/3)]=count_floor.get(math.floor(position[1]/3), 0)+1
+            for count in count_floor:
+                ro[count]=count_floor[count]*area_of_people/area_of_staircase
+            
+            for agent in self.agent:
+                if agent.position[0] > 1 and agent.position[0] < 4:
+                    #agent.set_speed(count_floor[math.floor(agent.position[1]/3)])
 
-# sprawdzenie czy może wejść, czy gęstość nie jest większa niż powierzchnia klatki
-# jak nie ma to czeka na wejście
-
-            #print(x, a1*0.4/9, a2*0.4/9, a3*0.4/9, a4*0.4/9) #ilość osób na danym piętrze * powierzchnia osoby / powierzchnia piętra
+                    if float(agent.position[1]) <=3:
+                        try:
+                            print(a1, count_floor[0])
+                        except:
+                            pass
+                        agent.set_speed(a1*0.4/9)
+                    elif float(agent.position[1])>3 and float(agent.position[1])<=6:
+                        try:
+                            print(a2, count_floor[1])
+                        except:
+                            pass
+                        agent.set_speed(a2*0.4/9)
+                    elif float(agent.position[1])>6 and float(agent.position[1])<=9:
+                        try:
+                            print(a3, count_floor[2])
+                        except:
+                            pass
+                        agent.set_speed(a3*0.4/9)
+                    elif float(agent.position[1])>9 and float(agent.position[1])<=12:
+                        try:
+                            print(a4, count_floor[3])
+                        except:
+                            pass
+                        agent.set_speed(a4*0.4/9)
             self.traj.append(traj)
 A = Pedestrians()
 
