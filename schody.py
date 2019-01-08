@@ -12,6 +12,10 @@ liczba_krokow = 150
 czas_interwalu = 50
 area_of_people = 0.5
 area_of_staircase = 9# }}}
+
+#1/3 z boku, 2/3 z góry, łączenie 
+#prawdziwa klatka, wchodzą z jednej strony
+
 class Agent:
 
     def __init__(self):
