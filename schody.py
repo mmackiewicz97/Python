@@ -1,21 +1,17 @@
-import numpy.random as random
+import numpy.random as random# {{{
 import math
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
-from matplotlib import patches as mpaths
-#gęstość na piętrze
-#różna prędkość w zależności od gęstości
-
-#10 strona książki człowiek 0,5 m^2
-# sprawdzenie czy może wejść, czy gęstość nie jest większa niż powierzchnia klatki
+from matplotlib import patches as mpaths# }}}
+# sprawdzenie czy może wejść, czy gęstość nie jest większa niż powierzchnia klatki{{{
 # jak nie ma to czeka na wejście
 
-liczba_agentow = 10
+liczba_agentow = 100
 liczba_krokow = 150
 czas_interwalu = 50
-area_of_people = 0.4
-area_of_staircase = 9
+area_of_people = 0.5
+area_of_staircase = 9# }}}
 class Agent:
 
     def __init__(self):
@@ -52,60 +48,20 @@ class Pedestrians:
     def do_traj(self):
         for x in range(liczba_krokow):
             traj = []
-            a1 = 0 
-            a2 = 0
-            a3 = 0
-            a4 = 0
-            for i in self.agent:
-                traj.append(i.get_trajectory())
-            for i in traj:  # traj=[ [(x1, y1),(x2,y2)], [(x12, y12),(x22, y22)] ] -pozycje punktow po czasie
-                if i[1] < 3 and i[1]>0:
-                    a1 +=1
-                elif i[1] >3 and i[1]<=6:
-                    a2 +=1
-                elif i[1] >6 and i[1]<=9:
-                    a3 +=1
-                elif i[1] >9 and i[1]<=12:
-                    a4 +=1
             count_floor = {}
             ro = {}
-            for position in traj:  
-                count_floor[math.floor(position[1]/3)]=count_floor.get(math.floor(position[1]/3), 0)+1
-            for count in count_floor:
-                ro[count]=count_floor[count]*area_of_people/area_of_staircase
-            
             for agent in self.agent:
-                if agent.position[0] > 1 and agent.position[0] < 4:
-                    #agent.set_speed(count_floor[math.floor(agent.position[1]/3)])
-
-                    if float(agent.position[1]) <=3:
-                        try:
-                            print(a1, count_floor[0])
-                        except:
-                            pass
-                        agent.set_speed(a1*0.4/9)
-                    elif float(agent.position[1])>3 and float(agent.position[1])<=6:
-                        try:
-                            print(a2, count_floor[1])
-                        except:
-                            pass
-                        agent.set_speed(a2*0.4/9)
-                    elif float(agent.position[1])>6 and float(agent.position[1])<=9:
-                        try:
-                            print(a3, count_floor[2])
-                        except:
-                            pass
-                        agent.set_speed(a3*0.4/9)
-                    elif float(agent.position[1])>9 and float(agent.position[1])<=12:
-                        try:
-                            print(a4, count_floor[3])
-                        except:
-                            pass
-                        agent.set_speed(a4*0.4/9)
+                position = agent.get_trajectory()
+                traj.append(position)
+                count_floor[math.floor(position[1]/3)]=count_floor.get(math.floor(position[1]/3), 0)+1
+                ro[math.floor(position[1]/3)]=count_floor[math.floor(position[1]/3)]*area_of_people/area_of_staircase
+                if ro[math.floor(position[1]/3)] < 1:
+                    agent.set_speed(ro[math.floor(agent.position[1]/3)])
+                else:
+                    agent.set_speed(1.04848953)
             self.traj.append(traj)
 A = Pedestrians()
-
-class Animation:
+class Animation:# {{{
 
     def __init__(self):
         self.fig = plt.figure()
@@ -133,5 +89,5 @@ class Animation:
 
     def do_animation(self, n_interval):
         animate = anim.FuncAnimation(self.fig, self.animate, frames=self.n_frames, init_func=self.init_animation, interval=n_interval, blit=True)
-        plt.show()
+        plt.show()# }}}
 Animation().do_animation(czas_interwalu)
