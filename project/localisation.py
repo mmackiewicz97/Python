@@ -17,7 +17,6 @@ print(df2.B.max())
 #df.drop(df.columns[1:2], 1) #index[1:3], 0)
 #df.shape
 nom.geocode(str(df.iloc[0,1])+', '+str(df.iloc[0,2])+', '+str(df.iloc[0,3]))
-branica = nom.geocode("Branica Radzynska, Polska")
 df_t = df.T
 df_t[7]=[7, "Warszawa, Polska", "Sam", "CB", "PL", "Mat", 1]
 df = df_t.T
