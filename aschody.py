@@ -4,79 +4,82 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 from matplotlib import patches as mpaths# }}}
-# sprawdzenie czy może wejść, czy gęstość nie jest większa niż powierzchnia klatki{{{
-# jak nie ma to czeka na wejście
 # 2 z góry, 1 z boku
 # z parteru schodzi 1osoba/sekunde, definiuje schodzenie pozostałych, kolejkowanie od dołu
-# parter powierzchnia spocznika, I piętro schody+spocznik
-# kolejka, fifo, po dwóch do drzwi
-# po biegach chodzą po dwóch, w drzwiach pojedynczo
 # szywno wolne miejsca na piętrach
 # schodzą po tablicy
 # 10m/0,3cm na człowieka = 33osoby zmieszczą się na klatce 3 piętrowej
 # jeden w jedną komórkę
-
+# 1/3 z boku, 2/3 z góry, łączenie 
+floor_space = 1# {{{
 liczba_agentow = 3
-liczba_krokow = 5
+liczba_krokow = 9
 czas_interwalu = 50
 area_of_people = 0.5
 area_of_staircase = 9# }}}
-
-# 1/3 z boku, 2/3 z góry, łączenie 
-# prawdziwa klatka, wchodzą z jednej strony
-
-class Agent:
+class Agent:# {{{
 
     def __init__(self):
-        self.speed = random.normal(1.2, 0.2, 1)
-        floor = [3, 6, 9, 12]
-        self.position = (random.randint(1, 50)/10, floor[random.randint(0, 4)])
-    def get_trajectory(self):
-        if self.position[0] < 1:
-            x = self.position[0]+(self.speed/80)
-            y = self.position[1]
-            self.position = (x, y)
-        elif self.position[0] > 4:
-            x = self.position[0]-(self.speed/80)
-            y = self.position[1]
-            self.position = (x, y)
-        else:
-            x = self.position[0]
-            y = self.position[1]-(self.speed/10)
-            self.position = (x, y)
-        return float(x), float(y)
-    def set_speed(self, ro):
-        self.speed =(-262.23776224*ro**4+517.09401709*ro**3-273.42657343*ro**2-25.794483294*ro+48.531468531)/20
-
+        floor = [0, 3, 6, 9, 12]
+        self.position = (0.5, floor[random.randint(0, 5)])# }}}
+a, b, c, d, e = Agent(),  Agent(), Agent(), Agent(), Agent()# {{{
+a.position = (0.5,0)
+b.position = (0.5,1)
+c.position = (0.5,2)
+d.position = (0.5,3)
+e.position = (0.5,6)# }}}
 class Pedestrians:
 
     def __init__(self):
-        self.agent = []
+        self.agent = [b, a, c, d,e]
         self.traj = []
-        self.add_agent()
-        self.do_traj()
+        #self.add_agent()
+        self.loop()
     def add_agent(self):
         for i in range(liczba_agentow):
             self.agent.append(Agent())
     def do_traj(self):
-        for x in range(liczba_krokow):
-            traj = []
-            count_floor = {}
-            ro = {}
-            for agent in self.agent:
-                position = agent.get_trajectory()
-                traj.append(position)
-                count_floor[math.floor(position[1]/3)]=count_floor.get(math.floor(position[1]/3), 0)+1
-                ro[math.floor(position[1]/3)]=count_floor[math.floor(position[1]/3)]*area_of_people/area_of_staircase
-                if ro[math.floor(position[1]/3)] < 1:
-                    agent.set_speed(ro[math.floor(agent.position[1]/3)])
+        floorque = {}
+        traj = []
+        x = 0
+        for agent in self.agent:
+            pietro = math.floor(agent.position[1]/3)
+            if agent.position[0] >= 1:
+                if pietro in floorque:
+                    floorque[pietro].append(agent)
                 else:
-                    agent.set_speed(1.04848953)
-            self.traj.append(traj)
-            print(traj)
-            print(self.traj)
-            
+                    floorque[pietro]=[agent]
+            else:
+                if pietro in floorque:
+                    while len(floorque[pietro]) <= floor_space:
+                        x+=1
+                        if x%3==0:
+                            x = 0
+                            floorque[pietro].append(agent)
+                            break
+                        else:
+                            try:
+                                floorque[pietro].append(floorque[pietro+1].pop(0))
+                            except KeyError:
+                                pass
+                else:
+                    floorque[pietro]=[agent]
+
+        for key in floorque.keys():
+            floorque[key].sort(key=lambda x: x.position[1])
+            for i in range(len(floorque[key])):
+                floorque[key][i].position=(1, key+i/10)
+        for agent in self.agent:
+            traj.append(agent.position)
+        floorque[0][0].position = (0, 0)
+        floorque[0].pop(0)
+        return traj
+    def loop(self):
+        for i in range(liczba_krokow):
+            self.traj.append(self.do_traj())
 A = Pedestrians()
+for i in A.traj:
+    print(i)
 class Animation:# {{{
 
     def __init__(self):
@@ -106,4 +109,4 @@ class Animation:# {{{
     def do_animation(self, n_interval):
         animate = anim.FuncAnimation(self.fig, self.animate, frames=self.n_frames, init_func=self.init_animation, interval=n_interval, blit=True)
         plt.show()# }}}
-Animation().do_animation(czas_interwalu)
+#Animation().do_animation(czas_interwalu)
