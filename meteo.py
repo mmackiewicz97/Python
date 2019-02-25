@@ -7,10 +7,11 @@ def pobierz_warunki_meteo():
     strona = requests.get(url).text
     czesc1 = strona.split('<pre class="metar"')
     czesc2 = czesc1[1].split("</pre>")
-
-    with open("meteo.txt", "a") as plik:
-        plik.write(teraz+"\n" + czesc2[0] + "\n***********************************\n")
-    print("Pobrano dane meteo", teraz)
+    czesc2[0] = czesc2[0].replace("&deg;", "\xb0")
+    print(teraz+"\n"+czesc2[0])
+#    with open("meteo.txt", "a") as plik:
+#        plik.write(teraz+"\n" + czesc2[0] + "\n***********************************\n")
+#    print("Pobrano dane meteo", teraz)
 pobierz_warunki_meteo()
 #for i in range(3):
 #    time.sleep(2)

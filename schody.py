@@ -16,8 +16,8 @@ from matplotlib import patches as mpaths# }}}
 # 10m/0,3cm na człowieka = 33osoby zmieszczą się na klatce 3 piętrowej
 # jeden w jedną komórkę
 
-liczba_agentow = 3
-liczba_krokow = 5
+liczba_agentow = 100
+liczba_krokow = 150
 czas_interwalu = 50
 area_of_people = 0.5
 area_of_staircase = 9# }}}
@@ -73,8 +73,8 @@ class Pedestrians:
                 else:
                     agent.set_speed(1.04848953)
             self.traj.append(traj)
-            print(traj)
-            print(self.traj)
+            #print(traj)
+            #print(self.traj)
             
 A = Pedestrians()
 class Animation:# {{{
