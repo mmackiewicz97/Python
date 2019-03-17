@@ -27,8 +27,10 @@ class Agent:# {{{
         floor = [0, 3, 6, 9, 12]
         self.position = (0.5, floor[random.randint(0, 5)])
         self.outside = 0# }}}
-        if_tab = [0,0,1]
-        self.if_in = if_tab[random.randint(0,3)]
+
+    def if_in(self):
+        if_tab = [0, 0, 1]
+        return random.randint(0,3)
 
 class Pedestrians:
 
@@ -63,34 +65,37 @@ class Pedestrians:
                     else:
                         if pietro in self.floorque:
                             if len(self.floorque[pietro]) < floor_space:
-                                try:
-                                    new = self.floorque[pietro+1].pop(0)
-                                    new.position = (1, pietro*3)
-                                    self.floorque[pietro].append(new)
-                                    if len(self.floorque[pietro]) < floor_space:
-                                        try:
-                                            new = self.floorque[pietro+1].pop(0)
-                                            new.position = (1, pietro*3)
-                                            self.floorque[pietro].append(agent)
-                                            agent.position = (1, agent.position[1])
-                                            self.floorque[pietro].append(new)
-                                        except:
-                                            self.floorque[pietro].append(agent)
-                                            agent.position = (1, agent.position[1])
-                                except:
+                                if agent.if_in():
                                     self.floorque[pietro].append(agent)
                                     agent.position = (1, agent.position[1])
+                                else:
+                                    try:
+                                        new = self.floorque[pietro+1].pop(0)
+                                        new.position = (1, pietro*3)
+                                        self.floorque[pietro].append(new)
+
+                                        if len(self.floorque[pietro]) < floor_space:
+                                            try:
+                                                new = self.floorque[pietro+1].pop(0)
+                                                new.position = (1, pietro*3)
+                                                self.floorque[pietro].append(new)
+                                            except:
+                                                self.floorque[pietro].append(agent)
+                                                agent.position = (1, agent.position[1])
+                                    except:
+                                        self.floorque[pietro].append(agent)
+                                        agent.position = (1, agent.position[1])
                         else:
                             self.floorque[pietro]=[agent]
                             agent.position = (1, agent.position[1])
             print("krok: ", i)
             for floor in self.floorque.keys():
                 #self.floorque[floor].sort(key=lambda x: x.position[1])
-                if len(self.floorque[floor]) < floor_space:
-                    try:
-                        self.floorque[floor].append(self.floorque[floor+1].pop(0))
-                    except:
-                        pass
+#                if len(self.floorque[floor]) < floor_space:
+#                    try:
+#                        self.floorque[floor].append(self.floorque[floor+1].pop(0))
+#                    except:
+#                        pass
                 print(floor,": {}".format([agent.name for agent in self.floorque[floor]]))
             print("\n")
             #for i in range(len(self.floorque[key])):
