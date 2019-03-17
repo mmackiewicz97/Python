@@ -11,6 +11,9 @@ from matplotlib import patches as mpaths# }}}
 # 10m/0,3cm na człowieka = 33osoby zmieszczą się na klatce 3 piętrowej
 # jeden w jedną komórkę
 # 1/3 z boku, 2/3 z góry, łączenie 
+#losowanie random, wylosuje to wchodzi
+#podwójna kolejka
+#wizualizacja wysokości z, 
 floor_space = 2# {{{
 liczba_agentow = 3
 liczba_krokow = 15
@@ -22,19 +25,11 @@ class Agent:# {{{
     def __init__(self):
         self.name = ""
         floor = [0, 3, 6, 9, 12]
-        self.position = (0.5, floor[random.randint(0, 5)])# }}}
-        self.outside = 0
-a, b, c, d, e = Agent(),  Agent(), Agent(), Agent(), Agent()# {{{
-#a.position = (0.5,0)
-#b.position = (0.5,1)
-#c.position = (0.5,2)
-#d.position = (0.5,3)
-#e.position = (0.5,6)
-#a.name="a"
-#b.name="b"
-#c.name="c"
-#d.name="d"
-#e.name="e"# }}}
+        self.position = (0.5, floor[random.randint(0, 5)])
+        self.outside = 0# }}}
+        if_tab = [0,0,1]
+        self.if_in = if_tab[random.randint(0,3)]
+
 class Pedestrians:
 
     def __init__(self):

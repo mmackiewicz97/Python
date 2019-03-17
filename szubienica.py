@@ -105,7 +105,7 @@ HANGMAN = (
 """)
 
 MAX_WRONG = len(HANGMAN) - 1
-WORDS = ("NADUŻYWANY", "MAŁŻ", "GUAM", "TAFTA", "PYTHON")
+WORDS = ("SAMOLOT","KSIĘŻYC", "PLANETA")
 
 # inicjalizacja zmiennych
 word = random.choice(WORDS)   # słowo do odgadnięcia
