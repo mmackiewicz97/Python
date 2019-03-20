@@ -14,10 +14,10 @@ from matplotlib import patches as mpaths# }}}
 #losowanie random, wylosuje to wchodzi
 #podwójna kolejka
 #wizualizacja wysokości z, 
-floor_space = 2# {{{
+floor_space = 3# {{{
 liczba_agentow = 3
-liczba_krokow = 15
-czas_interwalu = 50
+liczba_krokow = 25
+czas_interwalu = 900
 area_of_people = 0.5
 area_of_staircase = 9# }}}
 class Agent:# {{{
@@ -37,10 +37,10 @@ class Pedestrians:
     def __init__(self):
         y = 0 
         self.agent = []
-        for i in 'abcdefg':
+        for i in 'abcdefghijklmnoprst':
             x = Agent()
             x.position = (0.5, 0+y)
-            y+=1
+            y+=0.6
             x.name = i
             self.agent.append(x)                
 
@@ -68,48 +68,35 @@ class Pedestrians:
                                 if agent.if_in():
                                     self.floorque[pietro].append(agent)
                                     agent.position = (1, agent.position[1])
-                                else:
-                                    try:
-                                        new = self.floorque[pietro+1].pop(0)
-                                        new.position = (1, pietro*3)
-                                        self.floorque[pietro].append(new)
-
-                                        if len(self.floorque[pietro]) < floor_space:
-                                            try:
-                                                new = self.floorque[pietro+1].pop(0)
-                                                new.position = (1, pietro*3)
-                                                self.floorque[pietro].append(new)
-                                            except:
-                                                self.floorque[pietro].append(agent)
-                                                agent.position = (1, agent.position[1])
-                                    except:
-                                        self.floorque[pietro].append(agent)
-                                        agent.position = (1, agent.position[1])
+                            
                         else:
                             self.floorque[pietro]=[agent]
                             agent.position = (1, agent.position[1])
-            print("krok: ", i)
-            for floor in self.floorque.keys():
+            #print("krok: ", i)
+            for pietro in self.floorque.keys():
                 #self.floorque[floor].sort(key=lambda x: x.position[1])
-#                if len(self.floorque[floor]) < floor_space:
-#                    try:
-#                        self.floorque[floor].append(self.floorque[floor+1].pop(0))
-#                    except:
-#                        pass
-                print(floor,": {}".format([agent.name for agent in self.floorque[floor]]))
-            print("\n")
-            #for i in range(len(self.floorque[key])):
-             #       self.floorque[key][i].position=(1, key+i/10)
-            if len(self.floorque[0])<1:
-                print("zakonczono w: ", i, " krokach")
-                break
+                if len(self.floorque[pietro]) < floor_space:
+                    try:
+                        new = self.floorque[pietro+1].pop(0)
+                        new.position = (1, (pietro+1)*3-1)
+                        self.floorque[pietro].append(new)
+                    except:
+                        pass
+            #    print(pietro,": {}".format([agent.name for agent in self.floorque[pietro]]))
+
+                for x in range(len(self.floorque[pietro])):
+                    self.floorque[pietro][x].position=(1, pietro*3+x)
             out = self.floorque[0].pop(0)
-            out.position = (0, 0)
+            out.position = (4.2, i/2)
             out.outside = 1
             traj = []
             for agent in self.agent:
                 traj.append(agent.position)
-        self.traj.append(traj)
+            #    print(agent.name, agent.position)
+            self.traj.append(traj)
+            if len(self.floorque[0])<1:
+                print("zakonczono w: ", i, " krokach")
+                break
 
 A = Pedestrians()
 class Animation:# {{{
@@ -141,4 +128,4 @@ class Animation:# {{{
     def do_animation(self, n_interval):
         animate = anim.FuncAnimation(self.fig, self.animate, frames=self.n_frames, init_func=self.init_animation, interval=n_interval, blit=True)
         plt.show()# }}}
-#Animation().do_animation(czas_interwalu)
+Animation().do_animation(czas_interwalu)
