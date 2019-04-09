@@ -4,44 +4,39 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 from matplotlib import patches as mpaths# }}}
-# 2 z góry, 1 z boku
-# z parteru schodzi 1osoba/sekunde, definiuje schodzenie pozostałych, kolejkowanie od dołu
-# szywno wolne miejsca na piętrach
-# schodzą po tablicy
-# 10m/0,3cm na człowieka = 33osoby zmieszczą się na klatce 3 piętrowej
-# jeden w jedną komórkę
-# 1/3 z boku, 2/3 z góry, łączenie 
-#losowanie random, wylosuje to wchodzi
-#podwójna kolejka
-#wizualizacja wysokości z, 
-floor_space = 3# {{{
-liczba_agentow = 3
-liczba_krokow = 1
+
 czas_interwalu = 900
-area_of_people = 0.5
-area_of_staircase = 9# }}}
 
-class Queue:
+class Queue:# {{{
 
-    def __init__(self):
-        self.queue = list()
+    def __init__(self, floor, floor_space):
+        self.floor = floor
+        self.floor_space = floor_space
+        self.queue = floor*floor_space*[None]
 #        self.maxSize = 8
         self.head = 0
 #        self.tail = 0
 
-    def add(self,data):
-#        if self.size() >= self.maxSize:
-#            return ("Queue Full")
-        self.queue.extend(data)
-#        self.tail += 1
-        return True     
+    def if_free(self, floor):
+        if self.queue[self.head+floor*self.floor_space] == None:
+            if self.queue[self.head+floor*self.floor_space+1] == None:
+                return 0
+            else:
+                return 1
+        else:
+            return 2
+
+    def add(self,floor, data):
+        self.queue[self.head+floor*self.floor_space] = data
+
+    def insert(self, floor, data):
+        self.queue.insert(self.head+floor*self.floor_space, data)
+        self.queue = self.queue[:-1]
 
     def pop(self):
-#        if self.size() <= 0:
-#            self.resetQueue()
-#            return ("Queue Empty") 
         data = self.queue[self.head]
         self.head+=1
+        self.queue.append(None)
         return data
 
     def all(self):
@@ -49,58 +44,46 @@ class Queue:
 
     def que(self):
         return self.queue[self.head:]
-                
-    def size(self):
-        return len(self.queue) - self.head
-    
-    def resetQueue(self):
-#        self.tail = 0
-        self.head = 0
-        self.queue = list()
-#a = Queue()
-#for i in range(5):
-#    a.add("st"+str(i))
-#print(a.all())
-#print(a.que())
-#print(a.size())
-#print(a.pop())
-#print(a.all())
-#print(a.que())
-#print(a.size())
+
+    def len_que(self):
+        return len(self.queue[self.head:])
+
+    def len_all(self):
+        return len(self.queue)# }}}
 
 class Agent:# {{{
 
     def __init__(self):
         self.name = ""
+        self.wait = 0
         floor = [0, 3, 6, 9, 12]
         self.position = (0.5, floor[random.randint(0, 5)])
-        self.outside = 0
 
-    def __str__(self):
-        return self.name
+    def __repr__(self):
+        return str(self.name)
 
     def if_in(self):
         return random.randint(0,3)# }}}
 
-class Pedestrians:
+class Pedestrians:# {{{
 
     def __init__(self):
         self.agent = []
-        self.QUEUE = Queue()
+        self.QUEUE = Queue(7, 3)
         for i, z in enumerate('abcdefghijklmnoprst'):
             x = Agent()
-            x.position = (i/30, x.position[1])
-            x.name = i
+            x.position = (i/30, i)
+            x.name = z
             self.agent.append(x)                
         self.traj = []
-        x = [None]*3
-        self.que = {0:x,1:x,2:x,3:x,4:x}
         self.floorque = {}
         #self.add_agent()
         self.do_traj()
+
     def add_agent(self):
         for i in range(liczba_agentow):
             self.agent.append(Agent())
+
     def do_traj(self):
         for agent in self.agent:
             pietro = math.floor(agent.position[1]/3)
@@ -111,43 +94,44 @@ class Pedestrians:
                 self.floorque[pietro]=[agent]
         for floor in self.floorque.keys():
             self.floorque[floor].sort(key=lambda x: x.position[0])
-        for i in range(liczba_krokow):
-            for k,v in self.que.items():
-                if self.que[k][1] != None:
-                    if self.floorque[k][0].if_in():
-                        self.que[k][0] = self.floorque[k].pop(0)
+        krok = 0
+        while True:
+            krok+=1
+            for floor in self.floorque.keys():
+                if not self.QUEUE.if_free(floor):
+                    try:
+                        self.QUEUE.add(floor, self.floorque[floor].pop(0))
+                    except:
+                        pass
+                elif self.QUEUE.if_free == 1:
+                    if not self.floorque[floor][0].if_in():
+                        self.QUEUE.add(floor, self.floorque[floor].pop(0))
                 else:
-                    self.que[k][0] = self.floorque[k].pop(0)
-                self.QUEUE.add(v)
-        for x, i in enumerate(self.QUEUE.que()):
+                    try:
+                        self.floorque[floor][0].wait +=1
+                        if self.floorque[floor][0].wait == 3:
+                            self.QUEUE.insert(floor, self.floorque[floor].pop(0))
+                    except:
+                        pass
+            for x, i in enumerate(self.QUEUE.que()):
+                try:
+                    i.position = (1, x)
+                except:
+                    pass
+            print(self.QUEUE.que())
+            print(self.QUEUE.all())
+            print("\n\n")
             try:
-                i.position = (i.position[0], x)
+                self.QUEUE.pop().position = (0, 0)
             except:
                 pass
-        self.QUEUE.pop().position = (0, 0)
-        k = 0
-        self.que = {}
-        for x, i in enumerate(self.QUEUE.que()):
-            if x%3==0:
-                k+=1
-            self.que[k]
-
-# 
-        
-
-#                for x in range(len(self.floorque[pietro])):
-#                    self.floorque[pietro][x].position=(1, pietro*3+x)
-#            out = self.floorque[0].pop(0)
-#            out.position = (4.2, i/2)
-#            out.outside = 1
-#            traj = []
-#            for agent in self.agent:
-#                traj.append(agent.position)
-#            #    print(agent.name, agent.position)
-#            self.traj.append(traj)
-#            if len(self.floorque[0])<1:
-#                print("zakonczono w: ", i, " krokach")
-#                break
+            traj = []
+            for agent in self.agent:
+                traj.append(agent.position)
+            self.traj.append(traj)
+            if len([x for x in self.QUEUE.que() if x is not None]) == 0:
+                print("zakonczono w: ", krok, " krokach")
+                break# }}}
 
 A = Pedestrians()
 class Animation:# {{{
@@ -179,4 +163,4 @@ class Animation:# {{{
     def do_animation(self, n_interval):
         animate = anim.FuncAnimation(self.fig, self.animate, frames=self.n_frames, init_func=self.init_animation, interval=n_interval, blit=True)
         plt.show()# }}}
-#Animation().do_animation(czas_interwalu)
+Animation().do_animation(czas_interwalu)
