@@ -1,11 +1,11 @@
 import numpy.random as random# {{{
 import math
-import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 from matplotlib import patches as mpaths# }}}
 
 czas_interwalu = 900
+
 
 class Queue:# {{{
 
@@ -13,9 +13,7 @@ class Queue:# {{{
         self.floor = floor
         self.floor_space = floor_space
         self.queue = floor*floor_space*[None]
-#        self.maxSize = 8
         self.head = 0
-#        self.tail = 0
 
     def if_free(self, floor):
         if self.queue[self.head+floor*self.floor_space] == None:
@@ -55,7 +53,6 @@ class Agent:# {{{
 
     def __init__(self):
         self.name = ""
-        self.wait = 0
         floor = [0, 3, 6, 9, 12]
         self.position = (0.5, floor[random.randint(0, 5)])
 
@@ -74,7 +71,7 @@ class Pedestrians:# {{{
             x = Agent()
             x.position = (i/30, i)
             x.name = z
-            self.agent.append(x)                
+            self.agent.append(x)
         self.traj = []
         self.floorque = {}
         #self.add_agent()
@@ -94,6 +91,7 @@ class Pedestrians:# {{{
                 self.floorque[pietro]=[agent]
         for floor in self.floorque.keys():
             self.floorque[floor].sort(key=lambda x: x.position[0])
+        zerowe = 0
         krok = 0
         while True:
             krok+=1
@@ -103,26 +101,31 @@ class Pedestrians:# {{{
                         self.QUEUE.add(floor, self.floorque[floor].pop(0))
                     except:
                         pass
-                elif self.QUEUE.if_free == 1:
-                    if not self.floorque[floor][0].if_in():
-                        self.QUEUE.add(floor, self.floorque[floor].pop(0))
-                else:
+                elif self.QUEUE.if_free(floor) == 1:
                     try:
-                        self.floorque[floor][0].wait +=1
-                        if self.floorque[floor][0].wait == 3:
-                            self.QUEUE.insert(floor, self.floorque[floor].pop(0))
+                        if not self.floorque[floor][0].if_in():
+                            self.QUEUE.add(floor, self.floorque[floor].pop(0))
                     except:
                         pass
+                else:
+                    try:
+                        if not self.floorque[floor][0].if_in():
+                            self.QUEUE.insert(floor, self.floorque[floor].pop(0))
+                            break
+                    except:
+                        pass
+            insert = 0
             for x, i in enumerate(self.QUEUE.que()):
                 try:
                     i.position = (1, x)
                 except:
                     pass
-            print(self.QUEUE.que())
-            print(self.QUEUE.all())
+            print(self.QUEUE.que(), len(self.QUEUE.que()))
+            print(self.QUEUE.all(), len(self.QUEUE.all()))
+            print([x for x in self.QUEUE.all() if x is not None], ' - ',len([x for x in self.QUEUE.all() if x is not None]))
             print("\n\n")
             try:
-                self.QUEUE.pop().position = (0, 0)
+                self.QUEUE.pop().position = (2, 1)
             except:
                 pass
             traj = []
