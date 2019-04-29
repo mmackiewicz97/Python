@@ -5,7 +5,7 @@ import re
 from pydoc import help
 import easygui
 #path = easygui.fileopenbox()
-path = "/home/mateusz/Pulpit/5Luty.xlsx"
+path = "/home/mateusz/Pulpit/7Kwiecien.xlsx"
 grafik = xlrd.open_workbook(path).sheet_by_index(0)
 
 class Rozkaz:
@@ -78,56 +78,54 @@ class Student:
         self.imie = ''
         self.nazwisko = ''
         self.row = 0
-        self.odwod = []
+        self.odwod = 0
         self.dyzurka = 0
         self.podzial = 0
         self.miasto = 0
+        self.biuro = 0
 
-#czain = chain(range(5,36), range(43,73), range(81, 111))
-#students = []
-#for i in czain:
-#    x = Student()
-#    x.imie = grafik.cell_value(i, 3)
-#    x.nazwisko = grafik.cell_value(i, 2)
-#    x.row = i
-#    students.append(x)
-#biuro = r'B\w+'
-#b = re.compile(biuro)
-#podzial = r'P[^D]'
-#p = re.compile(podzial)
-#dyz = r'\w?D'
-#d = re.compile(dyz)
-#for i in students:
-#    for dni in range(4,grafik.ncols):
-#        if grafik.cell_value(i.row, dni):
-#            if grafik.cell_value(i.row, dni) == 'O':
-#                o = str(grafik.cell_value(4,dni))+'.12.18'
-#                i.odwod.append(o)
-#            elif d.match(grafik.cell_value(i.row, dni)):
-#                i.dyzurka+=1
-#            elif grafik.cell_value(i.row, dni) == 'M':
-#                i.miasto+=1
-#            elif b.match(grafik.cell_value(i.row, dni)):
-#                pass
-#            elif p.match(grafik.cell_value(i.row, dni)):
-#                pass #dodać SK
-#            else: #źle działa
-#                #print(grafik.cell_value(i.row, dni), 'p')
-#                i.podzial+=1
-#with open("/home/mateusz/Pulpit/sluzy.txt", "w") as text_file:
-#    for i in students:
-#        print(i.imie, i.nazwisko, 'odwod = ', len(i.odwod), '; dyzurka = ', i.dyzurka, '; miasto = ', i.miasto, '; podzial = ', i.podzial, file=text_file)
-#        print("\n", file=text_file)
-#    text_file.close()
-
+czain = chain(range(5,36), range(43,73), range(81, 111))
+students = []
+for i in czain:
+    x = Student()
+    x.imie = grafik.cell_value(i, 3)
+    x.nazwisko = grafik.cell_value(i, 2)
+    x.row = i
+    students.append(x)
+biuro = r'B\w+'
+b = re.compile(biuro)
+miasto = r'M'
+m = re.compile(miasto)
+podzial = r'[SP][^D]?$'
+p = re.compile(podzial)
+dyz = r'\w?D'
+d = re.compile(dyz)
+for i in students:
+    for dni in range(4,grafik.ncols):
+        if grafik.cell_value(i.row, dni):
+            if p.match(grafik.cell_value(i.row, dni)):
+                i.podzial+=1
+            elif d.match(grafik.cell_value(i.row, dni)):
+                i.dyzurka+=1
+            elif b.match(grafik.cell_value(i.row, dni)):
+                i.biuro+=1
+            elif m.match(grafik.cell_value(i.row, dni)):
+                i.miasto+=1
+            else:
+                i.odwod+=1
+students.sort(key=lambda x:x.nazwisko)
+with open("/home/mateusz/Pulpit/sluzy.txt", "w") as text_file:
+    for i in students:
+        print(i.imie, i.nazwisko, 'o=', i.odwod, '; d=', i.dyzurka, '; m=', i.miasto, '; p=', i.podzial, file=text_file)
+    text_file.close()
+print(len(students))
+del grafik
 #test.podaj_dzien()
 
-test.odwody()
+#test.odwody()
 
-test.slozby()
-test.wolnesz()
-test.zapisz()
+#test.slozby()
+#test.wolnesz()
+#test.zapisz()
 
-test.otworz()
-
-print("Process finished successful")
+#test.otworz()

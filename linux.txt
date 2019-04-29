@@ -22,3 +22,33 @@ for i in *.jpg; do
   let a=a+1
 done
 pyinstaller --onefile --windowed nazwa.py
+
+nmap -sP 192.168.0.1/24
+ip a
+ip r
+ping www.sgsp.edu.pl
+host 178.73.9.50
+dig sonda.inf.sgsp.edu.pl
+telnet 127.0.0.53 53
+telnet mail.sgsp.edu.pl 25
+dig k.szach.in
+mtr -n k.szach.in
+netstat -nat 
+nmap z.szach.in
+nmap -Pn k.szach.in
+ping 85.187.140.122
+
+xdotool search --onlyvisible --name "nuc"
+
+adb start-server
+adb devices 
+adb connect 192.168.0.50:5555
+adb shell screencap /sdcard/scren.png
+adb kill-server
+adb tcpip 5555
+
+scrcpy
+scrcpy -b 2m -m 1024--always-on-top
+
+youtube-dl -x --audio-format mp3 https://www.youtube.com/
+youtube-dl -F https://www.youtube.com/
