@@ -479,3 +479,14 @@ pizza = Pizza(["cheese", "tomato"])
 #    print(number)
 #
 #print_msg(9)
+head, *body, tail, _ = range(5) | "Początek środek, który jest tablicą i koniec".split()
+
+from pathlib import Path
+root = Path('post_sub_folder')
+print(root) //post_sub_folder
+path = root / 'happy_user'
+# Make the path absolute
+print(path.resolve()) /home/mateusz/pyton/post_sub_folder/happy_user/
+user = "Jane Doe"
+action = "buy"
+log_message = f'User {user} has logged in and did an action {action}.'
