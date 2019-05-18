@@ -157,4 +157,10 @@ def unique_in_order(iterable):
             pass
 def tower_builder(n):
     for i in [("*" * (i*2-1)).center(n*2-1) for i in range(1, n+1)]:
-        print(i)
+import operator
+def persistence(n):
+    i = 0
+    while n>=10:
+        n=reduce(operator.mul,[int(x) for x in str(n)],1)
+        i+=1
+    return i        print(i)
