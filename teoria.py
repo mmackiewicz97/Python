@@ -122,15 +122,15 @@ for char in "abcdefghijklmnopqrstuvwxyz":
 # print(name)
 # != różne od == równe = ma wartość
 #pyplot color
-#character 	color
-# ‘b’ 	blue
-#‘g’ 	green
-#‘r’ 	red
-#‘c’ 	cyan
-#‘m’ 	magenta
-#‘y’ 	yellow
-#‘k’ 	black
-#‘w’ 	white
+#character      color
+# ‘b’   blue
+#‘g’    green
+#‘r’    red
+#‘c’    cyan
+#‘m’    magenta
+#‘y’    yellow
+#‘k’    black
+#‘w’    white
 
 #Alfabet
 # for i in range(65, 91):
@@ -179,9 +179,9 @@ second = {4, 5, 6, 7, 8, 9}
 
 # print(first | second)
 # print(first & second)
-# print(first - second)
-# print(second - first)
-# print(first ^ second)
+print(first - second)
+print(second - first)
+#print(first ^ second)
 
 # When to use a dictionary:
 # - When you need a logical association between a key:value pair.
@@ -479,14 +479,24 @@ pizza = Pizza(["cheese", "tomato"])
 #    print(number)
 #
 #print_msg(9)
-head, *body, tail, _ = range(5) | "Początek środek, który jest tablicą i koniec".split()
+head, *body, tail, _ = range(5) # "Początek środek, który jest tablicą i koniec".split()
 
 from pathlib import Path
 root = Path('post_sub_folder')
-print(root) //post_sub_folder
-path = root / 'happy_user'
+#print(root) #post_sub_folder
+path = root # 'happy_user'
 # Make the path absolute
-print(path.resolve()) /home/mateusz/pyton/post_sub_folder/happy_user/
+#print(path.resolve()) #/home/mateusz/pyton/post_sub_folder/happy_user/
 user = "Jane Doe"
 action = "buy"
 log_message = f'User {user} has logged in and did an action {action}.'
+a = lambda x:x**2
+#print(a(2))
+b = [1,2,3]
+#print(list(map(a,b))) #iterates all the lists (or dictionaries etc.) and calls the lambda function for each of their element.
+alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
+vowels = ['a', 'e', 'i', 'o', 'u']
+#print(list(filter(lambda x: (x in vowels) , alphabets)))
+#returns a final list containing items for which the lambda function evaluates to True.
+from functools import reduce
+#print(reduce((lambda x, y: x + y), [1,2,3,4]))
