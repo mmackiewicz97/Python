@@ -6,16 +6,26 @@
 # To find the total of a list, use sum.
 
 from collections import OrderedDict
-d1 = dict() #słownik
+d1 = dict() #słownik {}
 d1["a"]=1
-d1['b']=1
-d3 = {"a": 1, "b": 2}
-d4 = OrderedDict([("a", 1), ("b", 2)])
-d2=OrderedDict()
+d1['b']=2
+#d1 = {"b": 2, "a": 1}
+d2 = OrderedDict()
+d2['b']=2
 d2['a']=1
-d2['b']=1
+#d2 = {"a":1, "b":2}
+print(d2)
+from collections import Counter
+nums = [55, 44, 33, 22, 11, 11]
+#print(Counter(nums))  {55:1, 44:1, 33:1}
+#print(Counter(nums).most_common(2))
+#print(sum(Counter(nums).values()))
+from collections import defaultdict #without KeyError
+d = defaultdict(object)
+d = defaultdict(lambda: 0)
+print(d['one'])
+print(d)
 
-nums = [55, 44, 33, 22, 11]
 #for m, i in enumerate(nums):
     #print(m, i)
 #print(dir())    #wyświetla istniejące zmienne
@@ -179,8 +189,8 @@ second = {4, 5, 6, 7, 8, 9}
 
 # print(first | second)
 # print(first & second)
-print(first - second)
-print(second - first)
+#print(first - second)
+#print(second - first)
 #print(first ^ second)
 
 # When to use a dictionary:

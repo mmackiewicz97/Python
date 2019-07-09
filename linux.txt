@@ -52,3 +52,5 @@ scrcpy -b 2m -m 1024--always-on-top
 
 youtube-dl -x --audio-format mp3 https://www.youtube.com/
 youtube-dl -F https://www.youtube.com/
+
+whois 10.10.10.30
