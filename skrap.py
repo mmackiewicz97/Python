@@ -49,15 +49,15 @@ for i in range(1,stron+1):
         query=f'INSERT INTO moto (link, opis, cena, adres) VALUES ("{link}", "{opis}","{cena}", "{adres}")'
         db.execute(query)
 
-def koordynaty(miejscowosc, timeout=0, x=0):
+def koordynaty(miejscowosc, timeout=0):
     try:
         return nom.geocode(miejscowosc,timeout=timeout)[1]
     except GeocoderTimedOut:
-        x+=1
-        if x==10:
+        timeout+=1
+        if timeout == 10:
             raise ValueError('A very specific bad thing happened.')
         else:
-            return koordynaty(miejscowosc,timeout, x)
+            return koordynaty(miejscowosc,timeout)
 
 q='CREATE TABLE IF NOT EXISTS koordynaty (adres, x, y)'
 db.execute(q)
