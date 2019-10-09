@@ -510,3 +510,19 @@ vowels = ['a', 'e', 'i', 'o', 'u']
 #returns a final list containing items for which the lambda function evaluates to True.
 from functools import reduce
 #print(reduce((lambda x, y: x + y), [1,2,3,4]))
+
+from functools import wraps
+def add10(f):
+        @wraps(f)
+        def g(*args, **kwargs):
+                return f(*args, **kwargs) + 10
+        return g
+@add10
+def add1(a):
+        return a+1
+#print(add1(0))
+#We can take a memory snapshot in any moment with pympler:
+from pympler import muppy, summary
+all_objects = muppy.get_objects()
+summary.print_(summary.summarize(all_objects), limit=100)
+#The main features of pympler can be accessed through ClassTracker
