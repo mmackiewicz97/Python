@@ -85,17 +85,31 @@ def check_for_duplicates(paths, hash=hashlib.sha1):
 
             duplicate = hashes_full.get(full_hash)
             if duplicate:
-                #print( "Duplicate found: %s and \n\t\t\t\t %s" % (filename, duplicate))
+                print( "Duplicate found: %s and \n\t\t %s" % (duplicate,filename))
+                #x= input("Jeden/Dwa\t\t")
+                #if x == "j":
                 try:
-                    os.makedirs("C:\\Users\\Mateusz\\Desktop\\duplicate\\"+"\\".join(filename.split("\\")[-5:-1]))
+                    os.makedirs("/home/mateusz/Pobrane/duplikat/"+"_".join(filename.replace(" ","").split("/")[-5:-1]))
                 except FileExistsError:
                    pass
                 try:
-                    os.rename(filename, "C:\\Users\\Mateusz\\Desktop\\duplicate\\"+"\\".join(filename.split("\\")[-5:-1]+str(filename.split("\\")[-1])))
-                    print(filename)
+                    os.rename(filename, "/home/mateusz/Pobrane/duplikat/"+"_".join(filename.replace(" ","").split("/")[-5:-1])+"/"+str(filename.split("/")[-1]))
                 except FileExistsError:
                     print('Exist ---------------------------------',filename)
-                    #os.remove(filename)
+                #        #os.remove(filename)
+                #elif x == "d":
+                #    try:
+                #        os.makedirs("/home/mateusz/Pobrane/duplikat/"+"_".join(duplicate.replace(" ","").split("/")[-5:-1]))
+                #    except FileExistsError:
+                #       pass
+                #    try:
+                #        os.rename(filename, "/home/mateusz/Pobrane/duplikat/"+"_".join(duplicate.replace(" ","").split("/")[-5:-1])+"/"+str(duplicate.split("/")[-1]))
+                #    except FileExistsError:
+                #        print('Exist ---------------------------------',filename)
+                #        #os.remove(filename)
+                #else:
+                #    print(30*"*")
+                #    continue
             else:
                 hashes_full[full_hash] = filename
 
@@ -115,4 +129,4 @@ def uniq(paths):
                 else:
                     if filename not in files:
                         print(full_path)
-#check_for_duplicates(["C:\\Users\\Mateusz\\Dysk Google\\SGSP"])
+check_for_duplicates(["/home/mateusz/Pobrane/SGSP/", "/home/mateusz/Dokumenty/sgsp_stare/"])
