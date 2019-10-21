@@ -9,9 +9,10 @@ from bs4 import BeautifulSoup
 
 nom = ArcGIS()
 class Skrap:
-    def __init__(self, url):
+    def __init__(self, url, baza):
         #self.moto = moto
-        self.sql = sqlite3.connect("mot.sql")
+        self.baza=baza
+        self.sql = sqlite3.connect(self.baza)
         self.db = self.sql.cursor()
         self.map = folium.Map(location=[52.2258014,21.0078177], zoom_start=6)
         q = 'CREATE TABLE IF NOT EXISTS moto (link TEXT, opis TEXT, cena TEXT , adres TEXT)'
@@ -99,7 +100,7 @@ class Skrap:
         for i in z.fetchall():
             folium.Marker([float(i[0]),float(i[1])], popup='<a href="'+i[2]+'">'+i[3]+" "+i[4]+'</a>').add_to(self.map)
 
-        self.map.save("skoda.html")
+        self.map.save(self.baza)
         self.sql.close()
         print("Zakończono pomyślnie")
 #Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=7000&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=100")
@@ -110,6 +111,6 @@ class Skrap:
 #Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-xjr-1200/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
 #Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-sv/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
 #x = Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-zr7/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
-x = Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=7500&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=170")
+x = Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=7500&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=170", "skrap.sql")
 x.set_address()
 x.set_markers()

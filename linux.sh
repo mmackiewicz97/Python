@@ -54,3 +54,10 @@ youtube-dl -x --audio-format mp3 https://www.youtube.com/
 youtube-dl -F https://www.youtube.com/
 
 whois 10.10.10.30
+
+		ls /home/m/Muzyka/yt -l | wc -l 
+		total_seconds=$(( $(mp3info -p '%S + ' /home/m/Muzyka/yt/*.mp3) 0 ))
+		printf "%02d:%02d:%02d\n" $((total_seconds / 3600)) $((total_seconds/60 - (total_seconds/3600)*60)) $((total_seconds % 60))
+cat input.txt | cut -d ' ' -f 2| sort -n| head -n 2| uniq -c
+
+
