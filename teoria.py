@@ -522,7 +522,7 @@ def add1(a):
         return a+1
 #print(add1(0))
 #We can take a memory snapshot in any moment with pympler:
-from pympler import muppy, summary
-all_objects = muppy.get_objects()
-summary.print_(summary.summarize(all_objects), limit=100)
+#from pympler import muppy, summary
+#all_objects = muppy.get_objects()
+#summary.print_(summary.summarize(all_objects), limit=100)
 #The main features of pympler can be accessed through ClassTracker

@@ -1,12 +1,14 @@
-from tkinter import *
+﻿from tkinter import *
 import os
 from PIL import ImageTk, Image
 from tkinter.filedialog import askdirectory
+from tkinter.filedialog import askopenfilename
 
 class Galery:
     def __init__(self):
         self.window = Tk()
-        self.window.attributes('-zoomed', True)
+        self.window.attributes('-topmost')
+        #?-alpha ?double?? ?-transparentcolor ?color?? ?-disabled ?bool?? ?-fullscreen ?bool?? ?-toolwindow ?bool?? ?-topmost ?bool??"
         self.window.title('Zdjęciowybieracz')
         menubar = Menu(self.window)
         self.window.config(menu=menubar)
@@ -37,9 +39,13 @@ class Galery:
         self.window.mainloop()
 
     def get_path(self):
-        self.path = askdirectory()
+        #self.path = askdirectory()
+        #self.path = askopenfilename(initialdir = "C:\",title="Wybierz zdjecia")
+        path = askopenfilename(title="Wybierz zdjecia", filetypes = (("Tylko jpg", "*.jpg"), ("Wszystko", "*.*")))
+        self.path = os.path.dirname(path)
+        print(self.path)
         self.get_photos()
-        self.move(1)
+        self.move(0)
 
     def get_help(self):
         top = Toplevel()
@@ -52,8 +58,11 @@ class Galery:
     def get_photos(self):
         self.photos = []
         for photo in os.listdir(self.path):
-            if photo.endswith(".jpg") or photo.endswith(".jpeg") or photo.endswith(".png"):
+            print(photo)
+            if photo.lower().endswith(".jpg") or photo.lower().endswith(".jpeg") or photo.lower().endswith(".png") or photo.lower().endswith(".gif") or photo.lower().endswith(".raw") or photo.lower().endswith(".svg") or photo.lower().endswith(".swf"):
                 self.photos.append(os.path.join(self.path, photo))
+        print(self.photos)
+        print(len(self.photos))
 
     def load(self,photo):
         im = Image.open(photo)
@@ -78,10 +87,10 @@ class Galery:
         self.current += delta
         try:
             if len(self.photos)>0:
-                if self.current >= len(self.photos):
-                    self.current = 0
-                elif self.current < 0:
+                if self.current >= len(self.photos)-1:
                     self.current = len(self.photos)-1
+                elif self.current < 0:
+                    self.current = 0 
                 photo = self.photos[self.current]
                 img = self.load(photo)
                 self.canvas.create_image(self.photoMaxSizeWidth/2, 0, image=img, anchor=N, tags='photo')
@@ -95,10 +104,10 @@ class Galery:
             if len(self.photos)>0:
                 photo = self.photos.pop(self.current)
                 try:
-                    os.makedirs(self.path+"/Wybrane")
+                    os.makedirs(self.path+"\\Wybrane")
                 except FileExistsError:
                     pass
-                os.rename(photo, self.path+"/Wybrane/"+photo.split("/")[-1])
+                os.rename(photo, self.path+"\\Wybrane\\"+str(photo.split("\\")[-1]))
                 self.move(1)
             else:
                 self.canvas.delete('photo')
