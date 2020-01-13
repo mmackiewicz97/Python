@@ -6,12 +6,14 @@ import folium
 import sqlite3
 from geopy.geocoders import ArcGIS
 from bs4 import BeautifulSoup
+import os 
 
 nom = ArcGIS()
 class Skrap:
-    def __init__(self, url, baza):
+    diwy = []
+    def __init__(self, url):
         #self.moto = moto
-        self.baza=baza
+        self.baza="baza.sql"
         self.sql = sqlite3.connect(self.baza)
         self.db = self.sql.cursor()
         self.map = folium.Map(location=[52.2258014,21.0078177], zoom_start=6)
@@ -55,10 +57,12 @@ class Skrap:
             for x in self.get_divs(i):
                 link=x.find("h3").find('a')['href']
                 opis=x.find("h3").text.replace("\n","").replace('"',"")
+                opis =re.sub('\W+',' ', opis)
                 cena=x.find('p',{"class":"price"}).text.replace("\n","")
                 #adres=self.get_div_address(link)
                 adres=x.find('i',{"data-icon":"location-filled"}).parent.get_text().replace("\n","").replace("  ","")
                 #query=f'INSERT INTO moto (link, opis, cena, adres) VALUES ("{link}", "{opis}","{cena}", "{adres}")'
+                Skrap.diwy.append((x, cena))
                 self.db.execute("INSERT INTO moto (link, opis, cena, adres) VALUES (?,?,?,?)",(link, opis, cena, adres))
         self.sql.commit()
 
@@ -99,18 +103,35 @@ class Skrap:
         z=self.db.execute(q)
         for i in z.fetchall():
             folium.Marker([float(i[0]),float(i[1])], popup='<a href="'+i[2]+'">'+i[3]+" "+i[4]+'</a>').add_to(self.map)
-
-        self.map.save(self.baza)
         self.sql.close()
+        save = self.baza.split(".")[0]+".html"
+        self.map.save(save)
+        os.system(f'xdg-open {save}')
         print("Zakończono pomyślnie")
-#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=7000&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=100")
-#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-kawasaki-zzr/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
-#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-fazer/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
-#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-hornet/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
-#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-bandit/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
-#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-xjr-1200/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
-#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-sv/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
-#x = Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-zr7/?search%5Bfilter_float_price%3Ato%5D=8000&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200")
-x = Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=7500&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=170", "skrap.sql")
+
+    def create_website(self):
+        Skrap.diwy.sort(key=lambda x: x[1])
+        with open("ol.html", "w") as f:
+            for i, x in enumerate(Skrap.diwy):
+                f.write(str(i))
+                f.write(str(x))
+        os.system(f'xdg-open ol.html')
+Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-yamaha/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
+print(len(Skrap.diwy))
+# Yamaha fazer
+Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-kawasaki/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
+print(len(Skrap.diwy))
+# Kawasaki z750
+Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-suzuki/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2007&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
+print(len(Skrap.diwy))
+# Suzuki Bandit 
+Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-honda/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2007&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
+print(len(Skrap.diwy))
+# Honda Hornet
+x = Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-sv/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2003&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
+print(len(Skrap.diwy))
+# Suzuki Sv
+
+x.create_website()
 x.set_address()
 x.set_markers()
