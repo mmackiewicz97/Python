@@ -11,11 +11,14 @@ class Task:
         self.delta = []
         self.current = 0
     def give(self):
-        try:
+        if self.current+1 == len(self.start):
             current_time = time.time()-self.start[self.current]
             print(self.name, time.strftime('%H:%M:%S', time.gmtime(self.start[self.current])), time.strftime(' %M:%S', time.gmtime(current_time)))
-        except:
-            print(self.name)
+        else:
+            if len(self.delta) != 0 and self.current>=1:
+                print(self.name, time.strftime('%H:%M:%S', time.gmtime(self.delta[self.current-1])))
+            else:
+                print(self.name)
 
 class Tasks:
     def __init__(self):
@@ -39,12 +42,12 @@ class Tasks:
         self.tasks.append(a)
     def begin(self, x):
         x = int(x)
-        start = time.time()
+        start = time.time()+3600
         self.tasks[x].start.append(start)
         self.tasks[x].name = "\x1b[1;32m{}\x1b[0m".format(self.tasks[x].name)
     def stop(self, x):
         x = int(x)
-        stop = time.time()
+        stop = time.time()+3600
         task = self.tasks[x]
         task.stop.append(stop)
         delta = task.stop[task.current]-task.start[task.current]
@@ -52,7 +55,9 @@ class Tasks:
         task.current += 1
     def check(self, x): #mark as done
         x = int(x)
-        self.tasks[x].name = "\x1b[9;32m{}\x1b[0m".format(self.tasks[x].name[7:-4])
+        #self.tasks[x].name = "\x1b[9;32m{}\x1b[0m".format(self.tasks[x].name[7:-4])
+        self.tasks[x].name = self.tasks[x].name[7:-4]
+        print(self.tasks[x].name[7:-4])
         tim = 0
         for x, i in enumerate(self.tasks[x].delta):
             tim += i
@@ -99,33 +104,33 @@ class Tasks:
             print(x," ", end="")
             t.give()
     def append(self, x):
-        db = shelve.open("_daily")
+        db = shelve.open("/home/mateusz/pyton/_daily")
         x = str(x)
-        if x in db:
-            print("Podaj inny klucz")
-            x = str(input())
+        #if x in db:
+        #    print("Podaj inny klucz")
+        #    x = str(input())
         db[x] = [time.strftime('%a %H:%M %d/%m/%y', time.gmtime(time.time())), self.tasks]
         db.close()
     def open(self, x):
-        db = shelve.open("_daily")
+        db = shelve.open("/home/mateusz/pyton/_daily")
         x = str(x)
         self.tasks = db[x][1]
         db.close()
     def keys(self, x):
-        db = shelve.open("_daily")
+        db = shelve.open("/home/mateusz/pyton/_daily")
         print("Keys in database:")
         for i in db.keys():
             print(i," - ", db[i][0])
         time.sleep(3)
     def check_key(self, x):
-        db = shelve.open("_daily")
+        db = shelve.open("/home/mateusz/pyton/_daily")
         if x in db:
             return True
         else:
             return False
         db.close()
     def dbase(self, x):
-        db = shelve.open("_daily")
+        db = shelve.open("/home/mateusz/pyton/_daily")
         del db[x]
         db.close()
 

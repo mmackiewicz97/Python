@@ -62,7 +62,7 @@ class Skrap:
                 #adres=self.get_div_address(link)
                 adres=x.find('i',{"data-icon":"location-filled"}).parent.get_text().replace("\n","").replace("  ","")
                 #query=f'INSERT INTO moto (link, opis, cena, adres) VALUES ("{link}", "{opis}","{cena}", "{adres}")'
-                Skrap.diwy.append((x, cena))
+                Skrap.diwy.append((x, int(cena[:-2].replace(" ",""))))
                 self.db.execute("INSERT INTO moto (link, opis, cena, adres) VALUES (?,?,?,?)",(link, opis, cena, adres))
         self.sql.commit()
 
@@ -111,27 +111,26 @@ class Skrap:
 
     def create_website(self):
         Skrap.diwy.sort(key=lambda x: x[1])
-        with open("ol.html", "w") as f:
-            for i, x in enumerate(Skrap.diwy):
-                f.write(str(i))
-                f.write(str(x))
-        os.system(f'xdg-open ol.html')
-Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-yamaha/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
-print(len(Skrap.diwy))
-# Yamaha fazer
-Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-kawasaki/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
-print(len(Skrap.diwy))
-# Kawasaki z750
-Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-suzuki/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2007&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
-print(len(Skrap.diwy))
-# Suzuki Bandit 
-Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-honda/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2007&search%5Bfilter_float_enginesize%3Afrom%5D=600&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
-print(len(Skrap.diwy))
-# Honda Hornet
-x = Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-sv/?search%5Bfilter_float_price%3Ato%5D=9000&search%5Bfilter_float_year%3Afrom%5D=2003&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
-print(len(Skrap.diwy))
-# Suzuki Sv
-
+        with open("olai.html", "w") as f:
+            for x, i in enumerate(Skrap.diwy):
+                f.write(f'<p>{x}</p>')
+                f.write(str(i[0]))
+        os.system(f'xdg-open oli.html')
+Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/q-yamaha/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=600")
+### Yamaha fazer
+Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/q-kawasaki/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=600")
+### Kawasaki z750
+Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/q-suzuki/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2007&search%5Bfilter_float_enginesize%3Afrom%5D=600")
+### Suzuki Bandit 
+Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/q-honda/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2007&search%5Bfilter_float_enginesize%3Afrom%5D=600")
+### Honda Hornet
+x=Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/q-sv/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2003&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc")
+## Suzuki Sv
+#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-yamaha/?search%5Bfilter_float_price%3Ato%5D=12500&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Bdist%5D=250")
+#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-kawasaki/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Bdist%5D=250")
+#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-suzuki/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2007&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Bdist%5D=250")
+#Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-honda/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2007&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Bdist%5D=250")
+#x=Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/q-sv/?search%5Bfilter_float_price%3Ato%5D=12000&search%5Bfilter_float_year%3Afrom%5D=2003&search%5Bdescription%5D=1&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=250")
 x.create_website()
-x.set_address()
-x.set_markers()
+#x.set_address()
+#x.set_markers()
