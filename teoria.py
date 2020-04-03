@@ -1,3 +1,70 @@
+class InvalidWithdrawal(Exception):
+    def __init__(self, amount, balance):
+        super().__init__("account doesn't have ${}".format(amount))
+        self.amount = amount
+        self.balance = balance
+    def overage(self):
+        return self.amount - self.balance
+try:
+    raise InvalidWithdrawal(25, 50)
+except InvalidWithdrawal as e:
+    print("Sorry, but your withdrawal is more than your balance by ${}".format(e.overage()))
+# try:
+# except Exception (większość błędów), 
+#       oprócz SystemExist, KeyboardInterrupt
+# else: if not catch any exception
+# finally:
+
+
+# Object is a collection of data(attribute, properties) and associated behaviors(methods)
+# object-oriented simply means, "functionally directed toward modeling objects
+# Object-oriented Analysis (OOA)
+# The analysis stage is all about what needs to be done. The output of the analysis stage is a set of requirements
+# Object-oriented Design (OOD)
+# The design stage is all about how things should be done. The output of the design stage is an implementation specification.
+# Object-oriented Programming (OOP)
+# the process of converting this perfectly defined design into a working program that does exactly what the CEO originally requested.
+# Most built-in types can be extended, like object , list , set , dict , file , and str, int and float
+# Inheritance - dziedziczenie
+# overriding - nadpisywanie metod, super()
+# polymorphism - inne zachowania tej samej metody
+
+class Contact:
+    all_contacts = []
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        Contact.all_contacts.append(self)
+    def _hiden(self):
+        print("Hiden func")
+    def __secret(self):
+        print("Top secret function")
+# Contact._hiden(Contact)
+# Contact._Contact__secret(Contact)
+class Friend(Contact):
+    def __init__(self, name, email, phone):
+        super().__init(name, email)
+        self.phone = phone
+class MailSender:
+    def send_mail(self, message):
+        print("Sending mail to " + self.email)
+class EmailableContact(Contact, MailSender):
+    pass
+
+e = EmailableContact("Jan", "janek@g.pl")
+print(Contact.all_contacts)
+e.send_mail("messege")
+# Multiple inheritance -avoid, 
+class ContactList(list):
+    def search(self, name):
+        print(self)
+        for contact in self:
+            if name == contact:
+                print("Found")
+#lista = ContactList(["1", "2", "3"])
+#lista.append("4")
+#lista.search("2")
+
 #Shift+F6 zmiana nazwy zmiennej wszędzie gdzie występuje
 #Ctrl + / hashowanie zaznaczonych linijek
 # To find the maximum or minimum of some numbers or a list, you can use max or min.

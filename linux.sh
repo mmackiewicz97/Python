@@ -21,6 +21,7 @@ for i in *.jpg; do
   mv -i -- "$i" "$new"
   let a=a+1
 done
+
 pyinstaller --onefile --windowed nazwa.py
 
 nmap -sP 192.168.0.1/24
@@ -60,4 +61,9 @@ whois 10.10.10.30
 		printf "%02d:%02d:%02d\n" $((total_seconds / 3600)) $((total_seconds/60 - (total_seconds/3600)*60)) $((total_seconds % 60))
 cat input.txt | cut -d ' ' -f 2| sort -n| head -n 2| uniq -c
 
+grep -rnw . -e "pattern"
+python3 -m http.server 80
+shred -uvzn 5 file
+youtube-dl -x --audio-format mp3 --playlist-items 1-15,17 -o '/home/%(title)s.%(ext)s'\''' https://yt
+curl -u name pass
 
