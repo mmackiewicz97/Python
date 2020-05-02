@@ -5,7 +5,7 @@ import re
 from pydoc import help
 import easygui
 #path = easygui.fileopenbox()
-path = "/home/mateusz/Pulpit/7Kwiecien.xlsx"
+path = "/home/mateusz/Pulpit/MARZEC2.xlsx"
 grafik = xlrd.open_workbook(path).sheet_by_index(0)
 
 class Rozkaz:
@@ -71,7 +71,7 @@ class Rozkaz:
 
     def otworz(self):
         os.system('xdg-open /home/mateusz/Pulpit/sluzby.txt')
-test = Rozkaz()
+#test = Rozkaz()
 
 class Student:
     def __init__(self):
@@ -84,42 +84,49 @@ class Student:
         self.miasto = 0
         self.biuro = 0
 
-czain = chain(range(5,36), range(43,73), range(81, 111))
+czain = chain(range(5,36), range(43,72), range(80, 110))
 students = []
 for i in czain:
-    x = Student()
-    x.imie = grafik.cell_value(i, 3)
-    x.nazwisko = grafik.cell_value(i, 2)
-    x.row = i
-    students.append(x)
-biuro = r'B\w+'
-b = re.compile(biuro)
-miasto = r'M'
-m = re.compile(miasto)
-podzial = r'[SP][^D]?$'
-p = re.compile(podzial)
-dyz = r'\w?D'
-d = re.compile(dyz)
-for i in students:
-    for dni in range(4,grafik.ncols):
-        if grafik.cell_value(i.row, dni):
-            if p.match(grafik.cell_value(i.row, dni)):
-                i.podzial+=1
-            elif d.match(grafik.cell_value(i.row, dni)):
-                i.dyzurka+=1
-            elif b.match(grafik.cell_value(i.row, dni)):
-                i.biuro+=1
-            elif m.match(grafik.cell_value(i.row, dni)):
-                i.miasto+=1
-            else:
-                i.odwod+=1
-students.sort(key=lambda x:x.nazwisko)
-with open("/home/mateusz/Pulpit/sluzy.txt", "w") as text_file:
+#    x = Student()
+#    x.imie = grafik.cell_value(i, 3)
+#    x.nazwisko = grafik.cell_value(i, 2)
+#    x.row = i
+    students.append(i)
+#biuro = r'B\w+'
+#b = re.compile(biuro)
+#miasto = r'M'
+#m = re.compile(miasto)
+#podzial = r'[SP][^D]?$'
+#p = re.compile(podzial)
+#dyz = r'\w?D'
+#d = re.compile(dyz)
+#for i in students:
+for dni in range(4,grafik.ncols):
     for i in students:
-        print(i.imie, i.nazwisko, 'o=', i.odwod, '; d=', i.dyzurka, '; m=', i.miasto, '; p=', i.podzial, file=text_file)
-    text_file.close()
-print(len(students))
-del grafik
+        #print(grafik.cell_value(i,dni))
+        if grafik.cell_value(i, dni) == "PD":
+            print(grafik.cell_value(4, dni))
+            print("PD",grafik.cell_value(i, 2),grafik.cell_value(i, 3))
+        if grafik.cell_value(i, dni) == "D":
+            print("D",grafik.cell_value(i, 2),grafik.cell_value(i, 3))
+    #if grafik.cell_value(i.row, dni):
+#            if p.match(grafik.cell_value(i.row, dni)):
+#                i.podzial+=1
+    #if d.match(grafik.cell_value(i.row, dni)):
+                #i.dyzurka+=1
+        #print(dni, i.nazwisko)
+#            elif b.match(grafik.cell_value(i.row, dni)):
+#                i.biuro+=1
+#            elif m.match(grafik.cell_value(i.row, dni)):
+#                i.miasto+=1
+#            else:
+#                i.odwod+=1
+#students.sort(key=lambda x:x.nazwisko)
+#with open("/home/mateusz/Pulpit/sluzy.txt", "w") as text_file:
+#    for i in students:
+#        print(i.imie, i.nazwisko, 'o=', i.odwod, '; d=', i.dyzurka, '; m=', i.miasto, '; p=', i.podzial, file=text_file)
+#    text_file.close()
+#del grafik
 #test.podaj_dzien()
 
 #test.odwody()

@@ -12,19 +12,15 @@ import time
 nom = ArcGIS()
 class Skrap:
     diwy = []
-    suma = 0
     def __init__(self, url=None):
         #self.moto = moto
-        self.baza="baza.sql"
+        self.baza="mbaza.sql"
         self.sql = sqlite3.connect(self.baza)
         self.db = self.sql.cursor()
         self.map = folium.Map(location=[52.2258014,21.0078177], zoom_start=6)
         q = 'CREATE TABLE IF NOT EXISTS moto (link TEXT, opis TEXT, cena INT , adres TEXT, diw TEXT)'
         #q = 'CREATE TABLE IF NOT EXISTS moto (link TEXT, opis TEXT, cena INT , adres TEXT)'
         self.db.execute(q)
-        q='SELECT opis, link FROM moto ORDER BY cena'
-        ins = self.db.execute(q)
-        print("baza", len(list(ins)))
         self.url=url
         if url is not None:
             if "olx" in url:
@@ -61,10 +57,8 @@ class Skrap:
 
     def insert(self):
         x = self.get_range()
-        print(x, "stron", self.url)
         for i in range(1,x+1):
-            print(i, "strona")
-            for i, x in enumerate(self.get_divs(i)):
+            for x in self.get_divs(i):
                 link=x.find("h3").find('a')['href']
                 opis=x.find("h3").text.replace("\n","").replace('"',"")
                 opis =re.sub('\W+',' ', opis)
@@ -72,14 +66,22 @@ class Skrap:
                 #adres=self.get_div_address(link)
                 adres=x.find('i',{"data-icon":"location-filled"}).parent.get_text().replace("\n","").replace("  ","")
                 #query=f'INSERT INTO moto (link, opis, cena, adres) VALUES ("{link}", "{opis}","{cena}", "{adres}")'
-                q=f'SELECT adres, cena, opis FROM moto WHERE adres="{adres}" AND cena="{cena}" AND opis="{opis}"'
+                q=f'SELECT adres, cena, link, opis FROM moto WHERE adres="{adres}" AND cena="{cena}" AND opis="{opis}"'
                 ins = self.db.execute(q)
                 if not ins.fetchall():
-                    Skrap.diwy.append((x, int(cena)))
                     self.db.execute("INSERT INTO moto (link, opis, cena, adres, diw) VALUES (?,?,?,?,?)",(link, opis, cena, adres, str(x)))
+                    q=f'SELECT cena, link FROM moto WHERE adres="{adres}" AND opis="{opis}" AND cena!="{cena}"'
+                    ins = self.db.execute(q)
+                    repeated = ins.fetchall()
+                    if repeated:
+                        p = ""
+                        for i in repeated:
+                            p+=f'<a href="{i[1]}">Link</a> <h3 align="right">{i[0]}</h3><br />'
+                        Skrap.diwy.append((x, int(cena), p))
+                    else:
+                        Skrap.diwy.append((x, int(cena)))
+
                     #self.db.execute("INSERT INTO moto (link, opis, cena, adres) VALUES (?,?,?,?)",(link, opis, cena, adres))
-            print(i)
-            Skrap.suma += i
         self.sql.commit()
 
     def koordynaty(self,miejscowosc, timeout=1):
@@ -140,9 +142,7 @@ class Skrap:
         
     def otoinsert(self):
         x = self.otoget_range()
-        print(x, "stron", self.url)
         for i in range(1,x+1):
-            print(i, "strona")
             for x in  self.otoget_divs(i):
                 opis = x.find("h2").find("a")
                 link = opis['href']
@@ -153,20 +153,34 @@ class Skrap:
                 opis = re.sub('\W+',' ', opis.get_text())
                 cena = int(x.find("span", {"class":"offer-price__number ds-price-number"}).find("span").get_text().split(",")[0].replace(" ",""))
                 adres = x.find("span",{"class":"ds-location-city"}).get_text()
-                q=f'SELECT adres, cena, opis FROM moto WHERE adres="{adres}" AND cena="{cena}" AND opis="{opis}"'
+                q=f'SELECT adres, cena, link, opis FROM moto WHERE adres="{adres}" AND cena="{cena}" AND opis="{opis}"'
                 ins = self.db.execute(q)
                 if not ins.fetchall():
-                    Skrap.diwy.append((x, int(cena)))
                     self.db.execute("INSERT INTO moto (link, opis, cena, adres, diw) VALUES (?,?,?,?,?)",(link, opis, cena, adres, str(x)))
+                    q=f'SELECT cena, link FROM moto WHERE adres="{adres}" AND opis="{opis}" AND cena!="{cena}"'
+                    ins = self.db.execute(q)
+                    repeated = ins.fetchall()
+                    if repeated:
+                        p = ""
+                        for i in repeated:
+                            p+=f'<a href="{i[1]}">Link</a> <h3 align="right">{i[0]}</h3><br />'
+                        Skrap.diwy.append((x, int(cena), p))
+                    else:
+                        Skrap.diwy.append((x, int(cena)))
     def create_website(self, s):
         Skrap.diwy.sort(key=lambda x: x[1])
         fil = self.baza.split(".")[0]+"olx.html"
+        print("Create file at ", time.strftime('Dzień %d-%m %H:%M:%S', time.localtime(time.time())))
         with open(fil, "w") as f:
             f.write(time.strftime('Dzień %d-%m %H:%M:%S', time.localtime(time.time())))
             f.write("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>")
             for x, i in enumerate(Skrap.diwy):
                 f.write(f'<p>{x}</p>')
                 f.write(str(i[0]))
+                try:
+                    f.write(str(i[2]))
+                except:
+                    pass
         os.system(f'xdg-open {fil}')
         if s==0:
             self.sql.close()
@@ -178,11 +192,10 @@ class Skrap:
         #Opel Omega 3
         #self.db.execute(q)
         #q='SELECT * FROM sqlite_master'
+        q='SELECT diw FROM moto ORDER BY cena'
         #q='DELETE FROM moto WHERE opis LIKE "Opel%" AND adres="Biała Podlaska"'
         #self.db.execute(q)
-        q='SELECT opis, link FROM moto ORDER BY cena'
         ins = self.db.execute(q)
-        print(len(ins))
         #for i in ins:
             #print(i)
         with open("file.html", "w") as f:
@@ -193,13 +206,12 @@ class Skrap:
         #self.sql.commit()
         self.sql.close()
 
-Skrap("https://www.olx.pl/motoryzacja/samochody/bmw/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Bdist%5D=300")
-Skrap("https://www.olx.pl/motoryzacja/samochody/opel/omega/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=300")
-Skrap("https://www.olx.pl/motoryzacja/samochody/mercedes-benz/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Bdist%5D=300")
-Skrap("https://www.otomoto.pl/osobowe/opel/omega/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
-Skrap("https://www.otomoto.pl/osobowe/mercedes-benz/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
-x = Skrap("https://www.otomoto.pl/osobowe/bmw/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
+x = Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=10000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=300")
+Skrap("https://www.otomoto.pl/motocykle-i-quady/od-2004/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=10000&search%5Bfilter_float_engine_capacity%3Afrom%5D=555&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=300&search%5Bcountry%5D=")
+#x = Skrap()
+#x = Skrap()
 x.create_website(0)
+#x.web_base()
 #x = Skrap()
 #x.web_base()
 #x.set_address()
