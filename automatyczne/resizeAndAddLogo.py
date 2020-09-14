@@ -6,38 +6,41 @@ import os
 from PIL import Image
 
 SQUARE_FIT_SIZE = 300
-LOGO_FILENAME = 'catlogo.png'
+#LOGO_FILENAME = 'catlogo.png'
+FILE = 'C:\\Users\\Mat\\Desktop\\suplement do dyplomu oryg'
 
-logoIm = Image.open(LOGO_FILENAME)
-logoWidth, logoHeight = logoIm.size
-
-os.makedirs('withLogo', exist_ok=True)
+#logoIm = Image.open(LOGO_FILENAME)
+#logoWidth, logoHeight = logoIm.size
+os.chdir(FILE)
+# os.makedirs('withLogo', exist_ok=True)
 # Loop over all files in the working directory.
-for filename in os.listdir('.'):
-    if not (filename.endswith('.png') or filename.endswith('.jpg')) \
-       or filename == LOGO_FILENAME:
-        continue # skip non-image files and the logo file itself
+for filename in os.listdir(FILE):
+     print(filename)
+#     if not (filename.endswith('.png') or filename.endswith('.jpg')):
+#       # or filename == LOGO_FILENAME:
+#         continue # skip non-image files and the logo file itself
 
-    im = Image.open(filename)
-    width, height = im.size
+im = Image.open("IMG.jpg")
+width, height = im.size
 
     # Add logo.
-    print('Adding logo to %s...' % (filename))
-    im.paste(logoIm, (width - logoWidth, height - logoHeight), logoIm)
-    # Check if image needs to be resized.
-    if width > SQUARE_FIT_SIZE and height > SQUARE_FIT_SIZE:
-        # Calculate the new width and height to resize to.
-        if width > height:
-            height = int((SQUARE_FIT_SIZE / width) * height)
-            width = SQUARE_FIT_SIZE
-        else:
-            width = int((SQUARE_FIT_SIZE / height) * width)
-            height = SQUARE_FIT_SIZE
+    #print('Adding logo to %s...' % (filename))
+    #im.paste(logoIm, (width - logoWidth, height - logoHeight), logoIm)
+    ## Check if image needs to be resized.
+    #if width > SQUARE_FIT_SIZE and height > SQUARE_FIT_SIZE:
+    #    # Calculate the new width and height to resize to.
+    #    if width > height:
+    #        height = int((SQUARE_FIT_SIZE / width) * height)
+    #        width = SQUARE_FIT_SIZE
+    #    else:
+    #        width = int((SQUARE_FIT_SIZE / height) * width)
+    #        height = SQUARE_FIT_SIZE
 
         # Resize the image.
-        print('Resizing %s...' % (filename))
-        im = im.resize((width, height))
+# print('Resizing %s...' % (filename))
+print("IMG_20200831_104721 asd")
+im = im.resize((int(0.25*width), int(0.25*height)))
 
 
     # Save changes.
-    im.save(os.path.join('withLogo', filename))
+im.save("IMG_20200831_104722.jpg")
