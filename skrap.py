@@ -75,11 +75,20 @@ class Skrap:
                 q=f'SELECT adres, cena, opis FROM moto WHERE adres="{adres}" AND cena="{cena}" AND opis="{opis}"'
                 ins = self.db.execute(q)
                 if not ins.fetchall():
-                    Skrap.diwy.append((x, int(cena)))
                     self.db.execute("INSERT INTO moto (link, opis, cena, adres, diw) VALUES (?,?,?,?,?)",(link, opis, cena, adres, str(x)))
                     #self.db.execute("INSERT INTO moto (link, opis, cena, adres) VALUES (?,?,?,?)",(link, opis, cena, adres))
+                    q=f'SELECT cena, link FROM moto WHERE adres="{adres}" AND opis="{opis}" AND cena!="{cena}"'
+                    ins = self.db.execute(q)
+                    repeated = ins.fetchall()
+                    if repeated:
+                        p = ""
+                        for i in repeated:
+                            p+=f'<a href="{i[1]}">Link</a> <h3 align="right">{i[0]}</h3><br />'
+                        Skrap.diwy.append((x, int(cena), p))
+                    else:
+                        Skrap.diwy.append((x, int(cena)))
             print(i)
-            Skrap.suma += i
+            #Skrap.suma += i
         self.sql.commit()
 
     def koordynaty(self,miejscowosc, timeout=1):
@@ -156,18 +165,31 @@ class Skrap:
                 q=f'SELECT adres, cena, opis FROM moto WHERE adres="{adres}" AND cena="{cena}" AND opis="{opis}"'
                 ins = self.db.execute(q)
                 if not ins.fetchall():
-                    Skrap.diwy.append((x, int(cena)))
                     self.db.execute("INSERT INTO moto (link, opis, cena, adres, diw) VALUES (?,?,?,?,?)",(link, opis, cena, adres, str(x)))
+                    q=f'SELECT cena, link FROM moto WHERE adres="{adres}" AND opis="{opis}" AND cena!="{cena}"'
+                    ins = self.db.execute(q)
+                    repeated = ins.fetchall()
+                    if repeated:
+                        p = ""
+                        for i in repeated:
+                            p+=f'<a href="{i[1]}">Link</a> <h3 align="right">{i[0]}</h3><br />'
+                        Skrap.diwy.append((x, int(cena), p))
+                    else:
+                        Skrap.diwy.append((x, int(cena)))
     def create_website(self, s):
         Skrap.diwy.sort(key=lambda x: x[1])
-        fil = self.baza.split(".")[0]+"olx.html"
+        fil = "/home/mateusz/"+self.baza.split(".")[0]+"olx.html"
         with open(fil, "w") as f:
             f.write(time.strftime('Dzień %d-%m %H:%M:%S', time.localtime(time.time())))
             f.write("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>")
             for x, i in enumerate(Skrap.diwy):
                 f.write(f'<p>{x}</p>')
                 f.write(str(i[0]))
-        os.system(f'xdg-open {fil}')
+                try:
+                    f.write(str(i[2]))
+                except:
+                    pass
+        #os.system(f'xdg-open {fil}')
         if s==0:
             self.sql.close()
         else:
@@ -193,12 +215,20 @@ class Skrap:
         #self.sql.commit()
         self.sql.close()
 
-Skrap("https://www.olx.pl/motoryzacja/samochody/bmw/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Bdist%5D=300")
-Skrap("https://www.olx.pl/motoryzacja/samochody/opel/omega/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=300")
-Skrap("https://www.olx.pl/motoryzacja/samochody/mercedes-benz/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Bdist%5D=300")
-Skrap("https://www.otomoto.pl/osobowe/opel/omega/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
-Skrap("https://www.otomoto.pl/osobowe/mercedes-benz/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
-x = Skrap("https://www.otomoto.pl/osobowe/bmw/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
+#Skrap("https://www.olx.pl/motoryzacja/samochody/bmw/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Bdist%5D=300")
+Skrap("https://www.olx.pl/motoryzacja/samochody/bmw/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=petrol&search%5Bfilter_enum_petrol%5D%5B1%5D=lpg&search%5Bfilter_float_enginepower%3Afrom%5D=150&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Bfilter_enum_transmission%5D%5B0%5D=manual&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=300")
+#Skrap("https://www.olx.pl/motoryzacja/samochody/opel/omega/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=300")
+Skrap("https://www.olx.pl/motoryzacja/samochody/opel/omega/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=petrol&search%5Bfilter_enum_petrol%5D%5B1%5D=lpg&search%5Bfilter_float_enginepower%3Afrom%5D=150&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=300")
+#Skrap("https://www.olx.pl/motoryzacja/samochody/mercedes-benz/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=lpg&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Bdist%5D=300")
+Skrap("https://www.olx.pl/motoryzacja/samochody/mercedes-benz/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_petrol%5D%5B0%5D=petrol&search%5Bfilter_float_enginepower%3Afrom%5D=150&search%5Bfilter_enum_car_body%5D%5B0%5D=sedan&search%5Bfilter_enum_transmission%5D%5B0%5D=manual&search%5Bdist%5D=300")
+#Skrap("https://www.otomoto.pl/osobowe/opel/omega/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
+Skrap("https://www.otomoto.pl/osobowe/opel/omega/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol&search%5Bfilter_enum_fuel_type%5D%5B1%5D=petrol-lpg&search%5Bfilter_float_engine_power%3Afrom%5D=150&search%5Bfilter_enum_gearbox%5D%5B0%5D=manual&search%5Bfilter_enum_gearbox%5D%5B1%5D=manual-sequential&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
+#Skrap("https://www.otomoto.pl/osobowe/mercedes-benz/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
+Skrap("https://www.otomoto.pl/osobowe/mercedes-benz/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol&search%5Bfilter_enum_fuel_type%5D%5B1%5D=petrol-lpg&search%5Bfilter_float_engine_power%3Afrom%5D=150&search%5Bfilter_enum_gearbox%5D%5B0%5D=manual&search%5Bfilter_enum_gearbox%5D%5B1%5D=manual-sequential&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
+#x = Skrap("https://www.otomoto.pl/osobowe/bmw/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol-lpg&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
+Skrap("https://www.otomoto.pl/osobowe/lexus/is/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=20000&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=180&search%5Bcountry%5D=")
+Skrap("https://www.olx.pl/motoryzacja/samochody/lexus/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=20000&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=200")
+x = Skrap("https://www.otomoto.pl/osobowe/bmw/seg-sedan/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_enum_fuel_type%5D%5B0%5D=petrol&search%5Bfilter_enum_fuel_type%5D%5B1%5D=petrol-lpg&search%5Bfilter_float_engine_power%3Afrom%5D=150&search%5Bfilter_enum_gearbox%5D%5B0%5D=manual&search%5Bfilter_enum_gearbox%5D%5B1%5D=manual-sequential&search%5Border%5D=filter_float_price%3Aasc&search%5Bbrand_program_id%5D%5B0%5D=&search%5Bdist%5D=300&search%5Bcountry%5D=")
 x.create_website(0)
 #x = Skrap()
 #x.web_base()

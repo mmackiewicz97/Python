@@ -1,3 +1,8 @@
+#count sum(1 for line in fh for character in line if character.isupper())
+def pyfunc(r):
+    for x in range(r):
+        print(' '*(r-x-1)+'*'*(2*x+1))  
+pyfunc(3)
 class InvalidWithdrawal(Exception):
     def __init__(self, amount, balance):
         super().__init__("account doesn't have ${}".format(amount))

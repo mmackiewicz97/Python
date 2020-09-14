@@ -81,7 +81,8 @@ class Skrap:
                     else:
                         Skrap.diwy.append((x, int(cena)))
 
-                    #self.db.execute("INSERT INTO moto (link, opis, cena, adres) VALUES (?,?,?,?)",(link, opis, cena, adres))
+                #else:
+                #    Skrap.diwy.append((x, int(cena)))
         self.sql.commit()
 
     def koordynaty(self,miejscowosc, timeout=1):
@@ -167,9 +168,11 @@ class Skrap:
                         Skrap.diwy.append((x, int(cena), p))
                     else:
                         Skrap.diwy.append((x, int(cena)))
+                #else:
+                #    Skrap.diwy.append((x, int(cena)))
     def create_website(self, s):
         Skrap.diwy.sort(key=lambda x: x[1])
-        fil = self.baza.split(".")[0]+"olx.html"
+        fil = "/home/mateusz/"+self.baza.split(".")[0]+"olxall.html"
         print("Create file at ", time.strftime('Dzień %d-%m %H:%M:%S', time.localtime(time.time())))
         with open(fil, "w") as f:
             f.write(time.strftime('Dzień %d-%m %H:%M:%S', time.localtime(time.time())))
@@ -181,7 +184,7 @@ class Skrap:
                     f.write(str(i[2]))
                 except:
                     pass
-        os.system(f'xdg-open {fil}')
+#        os.system(f'xdg-open {fil}')
         if s==0:
             self.sql.close()
         else:
