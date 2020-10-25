@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 
-browser=webdriver.Firefox()
+browser=webdriver.Chrome(executable_path='chromedriver.exe')
 
 browser.get('https://play2048.co/')
 
