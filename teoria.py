@@ -1,3 +1,71 @@
+#!/usr/bin/env python3
+import sys
+print(sys.argv)
+napisUnicode = u'Zażółć gęślą jaźń'
+napisStr = napisUnicode.encode('uts-8')
+print(len(napisUnicode), len(napisStr))
+# str() to ciąg bajtów traktowanych osobno, nie zawierają informacji o sposobie kodowania znaków spoza zakresu ASCII
+# nie można stworzyć obiektu basestring, można za jego pomocą sprawdzić czy obiekt jest tekstem
+print(isinstance(napisUnicode, str)) #sprawdzanie czy to instancja danej klasy
+napis = """ wielo 
+liniowy napis odczytywany
+w 3 liniach"""
+# napis jest niemodyfikowalny, napis += x za każdym obrotem pętli tworzy nowy obiekt string
+import re
+regex_email = re.compile(
+    r'''(?P<adres>
+    (?P<login>[\w+.]+)
+    @
+    (?P<domena>\w+(\.\w+)+)
+    )    
+    ''',
+    re.IGNORECASE | re.VERBOSE
+)
+tekst = 'mail1@gmail.com, student.1@studenci.umcs.pl'
+for match in regex_email.finditer(tekst):
+    print(match.groupdict()) #zwraca słownik zgrupowany
+
+
+# python manage.py makemigrations najpierw, potem migrate (tworzenie tabel)
+# python manage.py createsuperuser /tworzenie admina
+# python manage.py runserver /start programu
+# models.py - dane z bazy sqlite są przemodelowywane na pythonowskie struktury (models Model i models Folds?)
+# urls.py - skojarzenie widoków z adresami, html z procedurami widoku
+# views.py - procedura widoku z wypełnianiem danymi
+# settings.py - ustawienia
+# django-admin startproject mysite
+# python manage.py startapp blog
+# python -m venv nazwa_srodowiska /tworzenie wirtualnego srodowiska
+# input wczytywany jest zawsze jako STRING !!!
+# należy rzutować wczytywane dane, aby wczytywanie było w nowej linii w prompcie znak końca linii
+# python typowany jest dynamicznie, 3 jako int, 3.2 jako float
+
+def f1(n):
+    def f2(x):
+        return n-x
+    return f2
+res = f1(5)
+print(res(10)) #tutaj 10 jest przekazywane do f2
+
+kwadrat = lambda x: x*x
+print(kwadrat(2))
+
+#generator, funkcja która może być wstrzymywana
+def generator(n):
+    while n:
+        print("Generatr stop %d" % n)
+        yield n
+        print("Generatr start %d" %n)
+        n -= 1
+for x in generator(5):
+    print("Wywołanie %d" %x)
+gen = generator(5)
+print(next(gen))
+gen = range(0, 10)
+
+
+
+
 #count sum(1 for line in fh for character in line if character.isupper())
 def pyfunc(r):
     for x in range(r):
@@ -150,7 +218,7 @@ print(d)
 # print(int(y)+2)
 # print("%3.f" %x)
 # słownik = {"ja" : [1, 2, 3],"ty" : [1, 2, 5]}
-# print(słownik.get("on", "w zamian Ty"))
+# print(słownik.get("on", "w zamian Ty")) # nie rzuca key error
 # tablica = []
 # tablica1 = ["tekst", 1, 2]
 # tablica.append("tekst2")
@@ -198,10 +266,14 @@ for char in "abcdefghijklmnopqrstuvwxyz":
 # print(name.startswith("Janeczek"))
 # print(name.lower().endswith("spoko"))
 # name.split(' ') #dzieli string na tablice w miejscu spacji
-# name.join() działa odwrotnie do split
+# name.join() działa odwrotnie do split, łączy np po spacji
 # join - joins a list of strings with another string as a separator.
 # replace - replaces one substring in a string with another.
 # print(name)
+# napis.strip() # usuwa białe znaki z tekstu
+# napis.capitalize() # zmienia pierwszy znak na dużą literę
+# napis.swapcase() #zamienia jeden znak na inny
+
 # != różne od == równe = ma wartość
 #pyplot color
 #character      color
@@ -217,6 +289,7 @@ for char in "abcdefghijklmnopqrstuvwxyz":
 #Alfabet
 # for i in range(65, 91):
 #     print(chr(i))
+#ord("A") #--> "65"
 
 def add_five(x):
   return x + 5
