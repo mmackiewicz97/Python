@@ -55,11 +55,23 @@ def porownajpliki(plik1, plik2, plik3):
             f.write(i)
         for i in plikB:
             f.write(i)
+def konsola(width, text):
+    h = 0
+    for i in range(len(text)):
+        if i % width == 0:
+            print('{:{align}{width}}'.format(text[h:i], align='^', width=width))
+            h = i
+    print('{:{align}{width}}'.format(text[h:], align='^', width=width))
+def ipv4_check(ip):
+    import re
+    print([0<=int(x)<256 for x in re.split('\.',re.match(r'^\d+\.\d+\.\d+\.\d+$',ip).group(0))].count(True)==4)
 #zrobslownik(napis)
 #zrobslownikzpliku("plik.txt")
 #zliczslowa("plik.txt")
 #cezar("plik1", "plik2")
 #porownajpliki("plik1", "plik2", "plik3")
+#konsola(19, "jloreamdaskfdnskljgbnlsdn,zxcvkljsdfnmsdbfxclvjhlwsrfhlqwjkhwelkrjhakiś długi tekst 123")
+#ipv4_check("0.0.0.1")
 import os
 
 def pierwsze(napis):
@@ -87,7 +99,6 @@ def generator():
     rozszerzenie = input("Rozszerzenie")
     sciezka = input("Ścieżka")
     for file in os.listdir(sciezka):
-        print("a", file)
         if file.endswith(rozszerzenie):
             yield file
 

@@ -1,3 +1,9 @@
+git
+git rev-list –count master #liczenie commitów
+git ls-files --others --exclude-standard -z xargs -0 tar rvf ~/backup-untracked.zip
+#make an archive of untracked files
+git show master:README.md #check file on another branch
+git rev-list --all | xargs git grep -F ‘tekst’ #search in git "tekst"
 #!/usr/bin/env python3
 import sys
 print(sys.argv)

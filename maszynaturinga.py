@@ -71,7 +71,7 @@ class MaszynaTuringa:
             raise ValueError(f'Napotkano błąd! Ruch: "{ruch}" niezdefiniowany. Możliwe ruchy to "l" lub "r".')
 
     def koniec(self):
-        if self.stan_akt in self.stan_kon or  self.zakoncz is True:
+        if self.stan_akt in self.stan_kon or self.zakoncz is True:
             return True
         else:
             return False
