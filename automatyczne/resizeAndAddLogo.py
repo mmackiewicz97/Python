@@ -7,20 +7,21 @@ from PIL import Image
 
 SQUARE_FIT_SIZE = 300
 #LOGO_FILENAME = 'catlogo.png'
-FILE = 'C:\\Users\\Mat\\Desktop\\suplement do dyplomu oryg'
+#FILE = 'C:\\Users\\Mat\\Desktop\\suplement do dyplomu oryg'
+FILE = "/home/mateusz/Pobrane/IMG_20201123_143550.jpg"
 
 #logoIm = Image.open(LOGO_FILENAME)
 #logoWidth, logoHeight = logoIm.size
-os.chdir(FILE)
+#os.chdir(FILE)
 # os.makedirs('withLogo', exist_ok=True)
 # Loop over all files in the working directory.
-for filename in os.listdir(FILE):
-     print(filename)
+#for filename in os.listdir(FILE):
+     #print(filename)
 #     if not (filename.endswith('.png') or filename.endswith('.jpg')):
 #       # or filename == LOGO_FILENAME:
 #         continue # skip non-image files and the logo file itself
 
-im = Image.open("IMG.jpg")
+im = Image.open(FILE)
 width, height = im.size
 
     # Add logo.
@@ -37,10 +38,10 @@ width, height = im.size
     #        height = SQUARE_FIT_SIZE
 
         # Resize the image.
-# print('Resizing %s...' % (filename))
-print("IMG_20200831_104721 asd")
-im = im.resize((int(0.25*width), int(0.25*height)))
+print('Resizing %s...' % (FILE))
+im = im.resize((int(0.4*width), int(0.4*height)))
+#im = im.resize((720, 1440))
 
 
-    # Save changes.
-im.save("IMG_20200831_104722.jpg")
+# Save changes.
+im.save(FILE[:-3] + "zmn.jpg")

@@ -13,7 +13,7 @@ import webbrowser
 nom = ArcGIS()
 class Skrap:
     diwy = []
-    baza = "mbaza.sql"
+    baza = "/home/mateusz/pyton/mbaza.sql"
     sql = sqlite3.connect(baza)
     db = sql.cursor()
     db.execute('CREATE TABLE IF NOT EXISTS moto (link TEXT, opis TEXT, cena INT , adres TEXT, diw TEXT)')
@@ -65,7 +65,7 @@ class Skrap:
             Skrap.wszystkie += len(obj)
             wszystkie += len(obj)
             print('{:.0f}% - {}'.format((i/y)*100, self.url))
-            print('Na stronie: ', len(obj))
+            print(f'Na stronie {i}: {len(obj)}')
             for x in obj:
                 link=x.find("h3").find('a')['href']
                 opis=x.find("h3").text.replace("\n","").replace('"',"")
@@ -164,7 +164,7 @@ class Skrap:
             Skrap.wszystkie += len(obj)
             wszystkie += len(obj)
             print('{:.0f}% - {}'.format((i/y)*100, self.url))
-            print('Na stronie: ', len(obj))
+            print(f'Na stronie {i}: {len(obj)}')
             for x in obj:
                 opis = x.find("h2").find("a")
                 link = opis['href']
@@ -201,7 +201,7 @@ class Skrap:
 
     def create_website(self, s):
         Skrap.diwy.sort(key=lambda x: x[1])
-        fil = "/home/mateusz/Pulpit/"+Skrap.baza.split(".")[0]+time.strftime("%d.%m")+"olxall.html"
+        fil = "/home/mateusz/Pulpit/mbaza"+time.strftime("%d.%m")+".html"
         print("Create file at ", time.strftime('Dzień %d-%m %H:%M:%S', time.localtime(time.time())))
         with open(fil, "w") as f:
             f.write('<body style="background-color:#808080;">')
@@ -241,7 +241,9 @@ class Skrap:
         #self.sql.commit()
         self.sql.close()
 
-Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=200")
-Skrap("https://www.otomoto.pl/motocykle-i-quady/od-2004/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_float_engine_capacity%3Afrom%5D=555&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200&search%5Bcountry%5D=")
-x = Skrap()
-x.create_website(0)
+
+if __name__ == "__main__":
+    Skrap("https://www.olx.pl/motoryzacja/motocykle-skutery/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_float_year%3Afrom%5D=2004&search%5Bfilter_float_enginesize%3Afrom%5D=550&search%5Border%5D=filter_float_price%3Aasc&search%5Bdist%5D=200")
+    Skrap("https://www.otomoto.pl/motocykle-i-quady/od-2004/radzyn-podlaski/?search%5Bfilter_float_price%3Ato%5D=15000&search%5Bfilter_float_engine_capacity%3Afrom%5D=555&search%5Border%5D=created_at%3Adesc&search%5Bdist%5D=200&search%5Bcountry%5D=")
+    x = Skrap()
+    x.create_website(0)
