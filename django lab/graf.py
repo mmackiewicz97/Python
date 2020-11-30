@@ -155,11 +155,10 @@ def stworz(liczba_wierzcholkow, gestosc):
         for j in range(i+1, liczba_wierzcholkow + 1):
             if j != i:
                 kombinacje.append((i, j))
-    do_polaczenia = [x for x in range(1, liczba_wierzcholkow+1)]
     vw = random.choice(kombinacje)
     v, w = vw
     kombinacje.remove(vw)
-    do_polaczenia.remove(w)
+    polaczone = [w]
     for i in range(liczba_wierzcholkow-2):
         graf.dodaj(v, w)
         graf.dodaj(w, v)
@@ -171,8 +170,8 @@ def stworz(liczba_wierzcholkow, gestosc):
                 kombinacje.remove(k)
                 break
         w = v
-        do_polaczenia.remove(v)
-        v = random.choice(do_polaczenia)
+        polaczone.append(v)
+        v = random.choice(polaczone)
     liczba_krawedzi = gestosc/100*liczba_wierzcholkow*(liczba_wierzcholkow-1)
     liczba_krawedzi -= graf.liczba_krawedzi
     liczba_krawedzi = math.ceil(liczba_krawedzi/2)
@@ -188,14 +187,17 @@ def stworz(liczba_wierzcholkow, gestosc):
 
 def stworz_graf(liczba_wierzcholkow, gestosc):
     G = nx.Graph()
-    print("Minimalna gęstość grafu wynosi: ", nx.density(G)*100)
+    g = Graf(liczba_wierzcholkow, 4)
     for i in range(liczba_wierzcholkow):
         for j in range(i, liczba_wierzcholkow+1):
             if j != i:
                 G.add_edge(i,j)
+                g.dodaj(i, j)
+                g.dodaj(j, i)
+                print(i,j)
                 if (5*round(nx.density(G)*100/5)) == gestosc:
-                    print(nx.density(G)*100)
-    return G
+                    return G, g
+    raise Exception("Nie dopasowano grafu!")
 
 #G = stworz_graf(10, 25)
 #nx.draw(G, with_labels=True)
@@ -228,9 +230,12 @@ def wersjaA(plik):
 def wersjaB():
     grafy = {}
     for i in range(10):
-        for q in range(5, 101, 10):
-            g,k = stworz(10, q)
+        for q in range(25, 101, 10):
+            #g,k = stworz(10, q)
+            G, g = stworz_graf(10, q)
             #wyswietl_graf(k)
+            nx.draw(G, with_labels=True)
+            plt.plot()
             #g.wyswietl_wierzcholki()
             if q in grafy:
                 grafy[q].append(g)
