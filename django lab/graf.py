@@ -141,15 +141,13 @@ def algorytm_DFS_bez_print(graf):
 
 def wczytaj_dane(plik):
     with open (plik, "r") as p:
-         kraw = []
          dane = p.readlines()
          liczba_wierzcholkow, liczba_krawedzi = dane.pop(0).split()
          graf = Graf(int(liczba_wierzcholkow), int(liczba_krawedzi))
          for line in dane:
             v, w = line.split()
             graf.dodaj(int(v), int(w))
-            kraw.append((v,w))
-    return graf, kraw
+    return graf
 
 def stworz(liczba_wierzcholkow, gestosc):
     graf = Graf(liczba_wierzcholkow, 0)
@@ -159,27 +157,8 @@ def stworz(liczba_wierzcholkow, gestosc):
         for j in range(i+1, liczba_wierzcholkow + 1):
             if j != i:
                 kombinacje.append((i, j))
-    #vw = random.choice(kombinacje)
-    #v, w = vw
-    #kombinacje.remove(vw)
-    #polaczone = [w]
-    #for i in range(liczba_wierzcholkow-2):
-    #    graf.dodaj(v, w)
-    #    graf.dodaj(w, v)
-    #    kraw.append((v, w))
-    #    kraw.append((w, v))
-    #    graf.liczba_krawedzi += 2
-    #    for k in kombinacje:
-    #        if v in k and w in k:
-    #            kombinacje.remove(k)
-    #            break
-    #    w = v
-    #    polaczone.append(v)
-    #    v = random.choice(polaczone)
     graf.dodaj(1, 2)
     graf.dodaj(2, 1)
-    kraw.append((1, 2))
-    kraw.append((2, 1))
     graf.liczba_krawedzi += 2
     for v in range(2, liczba_wierzcholkow+1):
         w = random.randint(1, v)
@@ -187,8 +166,6 @@ def stworz(liczba_wierzcholkow, gestosc):
             w = 1
         graf.dodaj(v, w)
         graf.dodaj(w, v)
-        kraw.append((v, w))
-        kraw.append((w, v))
         graf.liczba_krawedzi += 2
         for k in kombinacje:
             if v in k and w in k:
@@ -205,56 +182,19 @@ def stworz(liczba_wierzcholkow, gestosc):
         graf.dodaj(vw[0], vw[1])
         graf.dodaj(vw[1], vw[0])
         graf.liczba_krawedzi+=2
-    return graf, kraw
-
-def stworz_graf(liczba_wierzcholkow, gestosc):
-    G = nx.Graph()
-    g = Graf(liczba_wierzcholkow, 4)
-    for i in range(liczba_wierzcholkow):
-        for j in range(i, liczba_wierzcholkow+1):
-            if j != i:
-                G.add_edge(i,j)
-                g.dodaj(i, j)
-                g.dodaj(j, i)
-                print(i,j)
-                if (5*round(nx.density(G)*100/5)) == gestosc:
-                    return G, g
-    raise Exception("Nie dopasowano grafu!")
-
-#G = stworz_graf(10, 25)
-#nx.draw(G, with_labels=True)
-#G = nx.tetrahedral_graph()
-#G = nx.complete_bipartite_graph(5, 10)
-#G = nx.barbell_graph(5,6)
-#G = nx.lollipop_graph(10, 5)
-#plt.subplot(121)
-#plt.subplot(122)
-#nx.draw_shell(G, nlist=[range(5,10), range(5)], with_labels=True)
-#print(G.get_edge_data())
-#print(G.neighbors(0))
-#print(G.nodes)
-#print(G.number_of_edges())
-#print(G.number_of_nodes())
-
-def wyswietl_graf(krawedzie):
-    G = nx.Graph()
-    G.add_edges_from(krawedzie)
-    nx.draw(G, with_labels=True)
-    #print(nx.density(G))
-    plt.show()
+    return graf
 
 def wersjaA(plik):
-    graf, kraw = wczytaj_dane(plik)
+    graf = wczytaj_dane(plik)
     algorytm_BFS(graf)
-    graf, kraw = wczytaj_dane(plik)
+    graf = wczytaj_dane(plik)
     algorytm_DFS(graf)
-    wyswietl_graf(kraw)
 
 def wersjaB():
     grafy = {}
     for i in range(50):
         for q in range(0, 101, 5):
-            g,k = stworz(60, q)
+            g = stworz(60, q)
             if q in grafy:
                 grafy[q].append(g)
             else:
@@ -293,8 +233,6 @@ def wersjaB():
     fig.tight_layout()
     plt.show()
 
-wersjaA("dane_graf4.txt")
-wersjaA("dane_graf2.txt")
-wersjaA("dane_graf3.txt")
+wersjaA("dane_graf.txt")
 
-#wersjaB()
+wersjaB()
