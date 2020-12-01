@@ -2,6 +2,7 @@ import random
 import math
 import networkx as nx
 import matplotlib.pyplot as plt
+import numpy as np
 
 KOLOR = ["czerwony", "niebieski"]
 
@@ -85,6 +86,7 @@ def algorytm_BFS(graf):
     print(f'Czy graf dwudzielny: {graf.czy_dwudzielny}')
     print("")
     graf.wyswietl_kolor()
+    print("")
 
 def algorytm_DFS(graf):
     print("/"*10+" ALGORYTM DFS "+"\\"*10)
@@ -114,6 +116,8 @@ def algorytm_DFS(graf):
     print(f'Czy graf dwudzielny: {graf.czy_dwudzielny}')
     print("")
     graf.wyswietl_kolor()
+    print("")
+
 
 def algorytm_DFS_bez_print(graf):
     odwiedzeni = []
@@ -155,11 +159,32 @@ def stworz(liczba_wierzcholkow, gestosc):
         for j in range(i+1, liczba_wierzcholkow + 1):
             if j != i:
                 kombinacje.append((i, j))
-    vw = random.choice(kombinacje)
-    v, w = vw
-    kombinacje.remove(vw)
-    polaczone = [w]
-    for i in range(liczba_wierzcholkow-2):
+    #vw = random.choice(kombinacje)
+    #v, w = vw
+    #kombinacje.remove(vw)
+    #polaczone = [w]
+    #for i in range(liczba_wierzcholkow-2):
+    #    graf.dodaj(v, w)
+    #    graf.dodaj(w, v)
+    #    kraw.append((v, w))
+    #    kraw.append((w, v))
+    #    graf.liczba_krawedzi += 2
+    #    for k in kombinacje:
+    #        if v in k and w in k:
+    #            kombinacje.remove(k)
+    #            break
+    #    w = v
+    #    polaczone.append(v)
+    #    v = random.choice(polaczone)
+    graf.dodaj(1, 2)
+    graf.dodaj(2, 1)
+    kraw.append((1, 2))
+    kraw.append((2, 1))
+    graf.liczba_krawedzi += 2
+    for v in range(2, liczba_wierzcholkow+1):
+        w = random.randint(1, v)
+        if w == v:
+            w = 1
         graf.dodaj(v, w)
         graf.dodaj(w, v)
         kraw.append((v, w))
@@ -169,9 +194,6 @@ def stworz(liczba_wierzcholkow, gestosc):
             if v in k and w in k:
                 kombinacje.remove(k)
                 break
-        w = v
-        polaczone.append(v)
-        v = random.choice(polaczone)
     liczba_krawedzi = gestosc/100*liczba_wierzcholkow*(liczba_wierzcholkow-1)
     liczba_krawedzi -= graf.liczba_krawedzi
     liczba_krawedzi = math.ceil(liczba_krawedzi/2)
@@ -224,19 +246,15 @@ def wyswietl_graf(krawedzie):
 def wersjaA(plik):
     graf, kraw = wczytaj_dane(plik)
     algorytm_BFS(graf)
+    graf, kraw = wczytaj_dane(plik)
     algorytm_DFS(graf)
     wyswietl_graf(kraw)
 
 def wersjaB():
     grafy = {}
-    for i in range(10):
-        for q in range(25, 101, 10):
-            #g,k = stworz(10, q)
-            G, g = stworz_graf(10, q)
-            #wyswietl_graf(k)
-            nx.draw(G, with_labels=True)
-            plt.plot()
-            #g.wyswietl_wierzcholki()
+    for i in range(50):
+        for q in range(0, 101, 5):
+            g,k = stworz(60, q)
             if q in grafy:
                 grafy[q].append(g)
             else:
@@ -256,12 +274,27 @@ def wersjaB():
                 else:
                     dwudzielnosc[q] = [0, 1]
 
-    print(dwudzielnosc)
+    szerokosc_slupka = 0.35
+    dwudzielne = []
+    niedwudzielne = []
+    for q in dwudzielnosc.keys():
+        dwudzielne.append(dwudzielnosc[q][0])
+        niedwudzielne.append(dwudzielnosc[q][1])
+    x = np.arange(21)
+    fig, ax = plt.subplots()
+    p1 = ax.bar(x - szerokosc_slupka / 2, dwudzielne, szerokosc_slupka)
+    p2 = ax.bar(x + szerokosc_slupka / 2, niedwudzielne, szerokosc_slupka)
+    ax.set_ylabel("Liczba grafów")
+    ax.set_xlabel("Gęstość grafów [%]")
+    ax.set_title("Dwudzielność grafów")
+    ax.set_xticks(x)
+    ax.set_xticklabels(["<5", "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100"])
+    plt.legend((p1[0], p2[0]), ("Dwudzielne", "Niedwudzielne"))
+    fig.tight_layout()
+    plt.show()
 
-#wersjaA("dane_graf3.txt")
+wersjaA("dane_graf4.txt")
+wersjaA("dane_graf2.txt")
+wersjaA("dane_graf3.txt")
 
-wersjaB()
-#g1, kraw= stworz(10, 30)
-#g1.wyswietl_wierzcholki()
-#algorytm_DFS(g1)
-#print(f'Czy graf dwudzielny: {g1.czy_dwudzielny}')
+#wersjaB()
