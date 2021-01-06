@@ -19,12 +19,8 @@ class Chromosom:
 
 
 class Osoba:
-    def __init__(self, n):
+    def __init__(self):
         self.chromosomy = self.stworz_chromosomy(1)
-        self.n = n
-
-    def __repr__(self):
-        return self.n
 
     def stworz_chromosomy(self, liczba_chromosomow):
         chromosomy = []
@@ -67,7 +63,6 @@ def metoda_ruletki(oceniona_populacja, ile_wylosowanych):
             n = 100
         kolo.append((osoba, m, n))
         m = n+1
-    print(kolo)
     dodatkowe_losowanie = 0
     wylosowane_osoby = []
     wylosowane_liczby = random.sample(range(100), ile_wylosowanych)
@@ -88,15 +83,12 @@ def metoda_ruletki(oceniona_populacja, ile_wylosowanych):
     return wylosowane_osoby
 
 def metoda_turnieju(populacja, wielkosc_turnieju):
-    print('turniuej', populacja)
     turniej1 = []
     for i in range(wielkosc_turnieju):
         turniej1.append(random.sample(populacja, wielkosc_turnieju))
-    print(turniej1)
     turniej2 = []
     for turniej in turniej1:
         turniej2.append(funkcja_oceny(turniej).pop()[0])
-    print(turniej2)
     return funkcja_oceny(turniej2).pop()[0]
 
 def metoda_rankingowa(populacja, ile_osobnikow):
@@ -114,7 +106,7 @@ def krzyzowanie_jednopunktowe(X, Y):
     geny_x = X.chromosomy[0].geny
     geny_y = Y.chromosomy[0].geny
     geny_dziecka = geny_x[:punkt_przeciecia] + geny_y[punkt_przeciecia:]
-    dziecko = Osoba("dziecko")
+    dziecko = Osoba()
     dziecko.chromosomy[0].geny = geny_dziecka
     return dziecko
 
@@ -122,32 +114,44 @@ def krzyzowanie_dwupunktowe(X, Y):
     geny_x = X.chromosomy[0].geny
     geny_y = Y.chromosomy[0].geny
     punkt_przeciecia1 = random.randint(0, int(len(geny_x)/2))
-    punkt_przeciecia2 = random.randint(punkt_przeciecia1, 50)
+    ogranicznik = int(input(f'Wprowadź ograniczenie drugiego podziału [{punkt_przeciecia1}-50]: \n'))
+    punkt_przeciecia2 = random.randint(punkt_przeciecia1, ogranicznik)
     geny_dziecka = geny_x[:punkt_przeciecia1] + geny_y[punkt_przeciecia1:punkt_przeciecia2] + geny_x[punkt_przeciecia2:]
-    dziecko = Osoba("dziecko")
+    dziecko = Osoba()
     dziecko.chromosomy[0].geny = geny_dziecka
     return dziecko
 
-# print(funkcja_oceny(P))
-# print(metoda_ruletki(funkcja_oceny(P), 6))
-# print(metoda_turnieju(P, 2))
-# print(metoda_rankingowa(P, 2))
-# print(krzyzowanie_jednopunktowe(d, b))
-#krzyzowanie_dwupunktowe(a, ab)
+
+def wybierz_selekcje():
+    rodzice = []
+    print("Wybierz metodę selekcji:")
+    wybor = int(input("""1 - Koło ruletki
+2 - Metoda rankingowa
+3 - Metoda turniejowa\n"""))
+    if wybor == 1:
+        rodzice = metoda_ruletki(funkcja_oceny(POPULACJA), 2)
+        dziecko = wybierz_krzyzowanie(rodzice)
+    elif wybor == 2:
+        rodzice = metoda_rankingowa(POPULACJA, 2)
+        dziecko = wybierz_krzyzowanie(rodzice)
+    elif wybor == 3:
+        n = int(input("Wprowadż wielkość turnieju:\n"))
+        rodzice = [metoda_turnieju(POPULACJA, n)]
+        rodzice.append(metoda_turnieju(POPULACJA, n))
+        dziecko = wybierz_krzyzowanie(rodzice)
+    return rodzice[0]
+
+def wybierz_krzyzowanie(rodzice):
+    print("Wybierz metodę krzyżowania:")
+    wybor = int(input("""1 - jednopunktowe
+2 - dwupunktowe\n"""))
+    if wybor == 1:
+        krzyzowanie_jednopunktowe(rodzice[0], rodzice[1])
+    elif wybor == 2:
+        krzyzowanie_dwupunktowe(rodzice[0], rodzice[1])
+
 POPULACJA = []
-# n = int(input("Wprowadź liczebność populacji:\n"))
-# for i in range(n):
-#     POPULACJA.append(Osoba())
-a = Osoba("A")
-ab = Osoba("Ab")
-b = Osoba("B")
-c = Osoba("C")
-d = Osoba("D")
-e = Osoba("E")
-a.chromosomy[0].geny = [9, 0, 9, 0, 1, 1, 2]
-ab.chromosomy[0].geny = [9, 1, 9, 3, 6, 6, 4]
-b.chromosomy[0].geny = [0, 9, 0, 9]
-c.chromosomy[0].geny = [1, 9, 1, 9]
-d.chromosomy[0].geny = [1, 1, 1, 1]
-e.chromosomy[0].geny = [1, 1, 1, 2]
-P = [a, b, c, d, e, ab]
+n = int(input("Wprowadź liczebność populacji:\n"))
+for i in range(n):
+    POPULACJA.append(Osoba())
+print(wybierz_selekcje())
