@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>Quiz</title>
+{% endblock %}
+
+{% block content %}
+
+    {% if object_list %}
+    <h1 align="center">Wybierz quiz</h1>
+<div class="list-group">
+    {% for quiz in object_list %}
+    <div class="row m-4">
+        <h4 class="list-group-item list-group-item-primary">{{quiz.opis}}</h4>
+        <a href="{% url 'dany_quiz' id=quiz.id %}" class="btn btn-outline-primary btn-lg btn-block"> Rozpocznij {{ quiz.nazwa }}</a>
+        <br />
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h1 align="center">Brak quizów w bazie</h1>
+
+    {% endif %}
+{% endblock %}

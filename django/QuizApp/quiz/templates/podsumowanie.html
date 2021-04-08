@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>Podsumowanie</title>
+{% endblock %}
+
+{% block content %}
+<div align="center">
+  <h1>Ukończyłeś test!</h1>
+    <h2>Twój wynik to: {{request.session.wynik}}</h2>
+    {% if request.session.zle_odp %}
+    <h3>Popełniłeś błędy w pytaniach:</h3>
+    <ul class="list-group">
+    {% for i in request.session.zle_odp %}
+
+      <li class="list-group-item list-group-item-danger"><h3>{{i}}</h3></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <h2>Gratulacje! Nie popełniłeś żadnego błędu!</h2>
+    {% endif %}
+  <a href="{% url 'index' %}"><center><button type="submit" class="btn btn-primary btn-lg my-2 my-sm-0">Przejdź do listy quizów</button></center></a>
+    </div>
+{% endblock %}

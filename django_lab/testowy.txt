@@ -1,0 +1,6 @@
+rozowy;ALFA;NUM
+J23 znowu nadaje;TXT;NUM;ALFA
+23555564566;NUM
+- kara bara mara;TXT;POINT
+bomba;TXT;BIG
+244488;EVEN

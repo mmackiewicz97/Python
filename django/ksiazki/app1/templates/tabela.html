@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> Do wypozyczenia: </h1>
+<table>
+    <tr>
+        <td><b>Tytuł</b></td>
+        <td><b>Wydawnictwo</b></td>
+        <td><b>Link</b></td>
+    </tr>
+    {% for wypozyczony in wypozyczone %}
+    <tr>
+        <td>{{ wypozyczony.ksiazka.tytul }}</td>
+        <td>{{ wypozyczony.ksiazka.wydawnictwo }}</td>
+        <td><a href="/app1/ksiazka/{{ wypozyczony.id }}/wypozycz">Wypozycz ksiazke</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

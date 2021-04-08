@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>Quiz</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="col-lg-8 border border-success p-4 m-4 mx-auto">
+    <h1> {{ pytanie.pytanie}} </h1>
+    <form method="post" action="{% url 'dany_quiz' id=id_quizu %}">
+        {% csrf_token %}
+        <div class="radio">
+            <label><input type="radio" id="opcja1" name="name" value="1">{{ pytanie.opcja1}} </label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" id="opcja2" name="name" value="2">{{ pytanie.opcja2}} </label>
+        </div>
+        {% if pytanie.opcja3 %}
+        <div class="radio">
+            <label><input type="radio" id="opcja3" name="name" value="3">{{ pytanie.opcja3}} </label>
+        </div>
+        {% endif %}
+        {% if pytanie.opcja4 %}
+        <div class="radio">
+            <label><input type="radio" id="opcja4" name="name" value="4">{{ pytanie.opcja4}} </label>
+        </div>
+        {% endif %}
+
+
+
+        <input type="hidden" name="pytanie" value="{{pytanie.id}}">
+        <input type="hidden" name="next" value="{{next}}">
+        <input type="submit" value="Następne pytanie" class="btn form-control btn-success">
+   </form>
+</div>
+{% endblock %}

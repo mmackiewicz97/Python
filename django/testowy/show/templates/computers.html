@@ -1,0 +1,6 @@
+<p>Komputery</p>
+{% for computer in computers %}
+<p> PRODUCENT: {{ computer.manufacturer }}
+    MODEL: {{ computer.modelName }}
+    DATA: {{ computer.releaseDate }}</p>
+{% endfor %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Usuwanie pacjenta</h1>
+<form method="post">
+{% csrf_token %}
+Usunąć {{ object.imie }} {{ object.nazwisko }}?
+<input type="submit" value="Zatwierdz" />
+</form>
+</body>
+</html>

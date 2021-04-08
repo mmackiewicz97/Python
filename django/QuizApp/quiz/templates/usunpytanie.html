@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>Usuń pytanie</title>
+{% endblock %}
+
+{% block content %}
+<form mclass="form-group my-2 my-lg-0 ml-auto" method="post">
+    {% csrf_token %}
+    <h1>Czy na pewno usunąć?</h1>
+    <h2>Pytanie: {{ object.pytanie }}</h2>
+    <h4>Quiz: {{ object.quiz }}</h4>
+    <h4>Opcja 1: {{ object.opcja1 }}</h4>
+    <h4>Opcja 2: {{ object.opcja2 }}</h4>
+    {% if object.opcja3 %}
+    <h4>Opcja 3: {{ object.opcja3 }}</h4>
+    {% endif %}
+    {% if object.opcja4 %}
+    <h4>Opcja 4: {{ object.opcja4 }}</h4>
+    {% endif %}
+   <center><button type="submit" class="btn btn-primary btn-lg my-2 my-sm-0">Usuń pytanie</button></center>
+</form>
+{% endblock %}

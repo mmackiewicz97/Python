@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from blog.models import BlogPost
+from models import BlogPost
 from django.template import loader
 
 # Create your views here.

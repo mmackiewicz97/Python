@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Autorzy:</p>
+<table>
+    <tr>
+        <td>Imie</td>
+        <td>Nazwisko</td>
+    </tr>
+    {% for autor in autorzy %}
+    <tr>
+        <td>{{ autor.imie }}</td>
+        <td>{{ autor.nazwisko }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p>Ksiażki:</p>
+<table>
+    <tr>
+        <td>Tytuł</td>
+        <td>Wydawnictwo</td>
+        <td>Data wydania</td>
+        <td>ID Autora</td>
+    </tr>
+    {% for ksiazka in ksiazki %}
+    <tr>
+        <td>{{ ksiazka.tytul }}</td>
+        <td>{{ ksiazka.wydawnictwo }}</td>
+        <td>{{ ksiazka.data_wydania }}</td>
+        <td>{{ ksiazka.klucz_autora }}</td>
+    </tr>
+    {% endfor %}
+</table>
+    <p> Do wypozyczenia: </p>
+<table>
+    <tr>
+        <td>Tytuł</td>
+        <td>Wydawnictwo</td>
+        <td>Link</td>
+    </tr>
+    {% for wypozyczony in wypozyczone %}
+    <tr>
+        <td>{{ wypozyczony.ksiazka.tytul }}</td>
+        <td>{{ wypozyczony.ksiazka.wydawnictwo }}</td>
+        <td><a href="/app1/ksiazka/{{ wypozyczony.id }}/wypozycz">Wypozycz ksiazke</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

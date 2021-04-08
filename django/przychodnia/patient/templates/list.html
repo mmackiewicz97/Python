@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Pacjenci</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Data zabiegu</th>
+        <th>Szczegóły</th>
+        <th>Edycja</th>
+        <th>Usunięcie</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for patient in object_list %}
+    <tr>
+        <td>
+            {{ patient.imie }}
+        </td>
+        <td>
+            {{ patient.nazwisko }}
+        </td>
+        <td>
+            {{ patient.data_zabiegu }}
+        </td>
+        <td><a href="{% url "patient_view" patient.id %}">Szczegóły</a></td>
+        <td><a href="{% url "patient_update" patient.id %}">Edycja</a></td>
+        <td><a href="{% url "patient_delete" patient.id %}">Usuń</a></td>
+         <td><a href="/edit/?uuid={{patient.id}}">Edycja klasą</a></td>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{% url "patient_create" %}">Dodaj nowego pacjenta.</a>
+
+
+</body>
+</html>

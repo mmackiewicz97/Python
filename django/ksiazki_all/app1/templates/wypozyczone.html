@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Wypozyczone Ksiazki</h1>
+
+    {% if wypozyczonaksiazka_list %}
+    <ul>
+
+      {% for ksiazka in wypozyczonaksiazka_list %}
+      <li class="{% if ksiazka.po_terminie %}text-danger{% endif %}">
+        <p>{{ ksiazka.ksiazka.tytul}}</p> Data zwrotu: ({{ ksiazka.data_zwrotu }})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>Brak wypozyczonych ksiazek.</p>
+    {% endif %}
+{% endblock %}

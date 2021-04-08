@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="form-group my-2 my-lg-0 ml-auto" method="post">
+    {% csrf_token %}
+    <input type="text" class="form-control mr-sm-2" name="tytul" placeholder="Tytuł"/>
+    <input type="text" class="form-control mr-sm-2" name="wydawnictwo" placeholder="Wydawnictwo"/>
+    <div class="form-group row">
+  <label for="example-date-input" class="col-2 col-form-label">Data wydania</label>
+  <div class="col-10">
+    <input class="form-control" type="date"  id="example-date-input" name="data_wydania">
+  </div>
+</div>
+   <form class="form-inline">
+  <label class="col-2 col-form-label" for="inlineFormCustomSelect">Wybierz autora</label>
+  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" name="klucz_autora">
+    <option selected>Autor...</option>
+      {% for i in form.klucz_autora %}
+      {{ i }}
+      {% endfor %}
+  </select>
+   <div>
+    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Potwierdź</button>
+   </div>
+</form>
+{% endblock %}

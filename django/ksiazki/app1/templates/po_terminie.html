@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> Książki po terminie: </h1>
+<table>
+    <tr>
+        <td><b>Tytuł</b></td>
+        <td><b>Wydawnictwo</b></td>
+        <td><b>Wypożyczający</b></td>
+    </tr>
+    {% for wypozyczony in przeterminowane %}
+    <tr>
+        <td>{{ wypozyczony.ksiazka.tytul }}</td>
+        <td>{{ wypozyczony.ksiazka.wydawnictwo }}</td>
+        <td>{{ wypozyczony.wypozyczajacy }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

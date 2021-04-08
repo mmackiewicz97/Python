@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>Usuń quiz</title>
+{% endblock %}
+
+{% block content %}
+<form mclass="form-group my-2 my-lg-0 ml-auto" method="post">
+    {% csrf_token %}
+    <h1>Czy na pewno usunąć?</h1>
+    <h2>Nazwa quizu: {{ object.nazwa }}</h2>
+    <h2>Opis: {{ object.opis }}</h2>
+   <center><button type="submit" class="btn btn-primary btn-lg my-2 my-sm-0">Usuń quiz</button></center>
+</form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="form-group my-2 my-lg-0 ml-auto" method="post">
+    {% csrf_token %}
+    <input type="text" class="form-control mr-sm-2" name="name" placeholder="name"/>
+    <input type="text" class="form-control mr-sm-2" name="surname" placeholder="surname"/>
+    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>
+</form>
+{% endblock %}

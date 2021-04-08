@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>Dodaj Quiz</title>
+{% endblock %}
+
+{% block content %}
+<form class="form-group my-2 my-lg-0 ml-auto" method="post">
+  {% csrf_token %}
+  {{ form }}
+   <center><button type="submit" class="btn btn-primary btn-lg my-2 my-sm-0">Zatwierdź</button></center>
+</form>
+{% if pytania %}
+<div class="row m-3">
+<a href="{% url 'dodaj_pytanie' id=id %}" class="btn btn-outline-primary btn-lg btn-block"> Dodaj pytanie </a>
+</div>
+<h3>Edytuj pytania:</h3>
+{% for pytanie in pytania %}
+<div class="row m-3">
+    <div class="col-10">
+        <h4>{{ pytanie.pytanie }}</h4>
+    </div>
+    <div class="col">
+        <div class="btn-group">
+            <a href="{% url 'edytuj_pytanie' id=pytanie.id %}" class="btn btn-success rounded">Edytuj</a>
+            <a href="{% url 'usun_pytanie' pk=pytanie.id %}" class="btn btn-danger rounded">Usuń</a>
+        </div></div>
+    </div>
+{% endfor %}
+{% else %}
+<h3>Brak pytań do tego quizu.</h3>
+{% endif %}
+{% endblock %}
